@@ -101,6 +101,18 @@ Future Features:
   
   Eventually create a real payment system (Cart page)
   
+  Order History
+  
+  Order tracking
+  
+  Email confirmation upon registration or purchase
+  
+  Multi image product listings
+  
+  Better styling
+  
+  Facebook, Google+, etc. login
+  
   & many more to be determined
   
       
