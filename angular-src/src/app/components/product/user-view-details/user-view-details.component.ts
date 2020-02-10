@@ -59,7 +59,7 @@ export class UserViewDetailsComponent implements OnInit {
     this.name = product.name;
     this.description = product.description;
     this.price = product.price;
-    this.image = `https://nameless-castle-68093.herokuapp.com/${product.image}`;
+    this.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
   }
 
   // check if product is in the cart,
