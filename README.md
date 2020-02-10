@@ -22,7 +22,9 @@ Features of the Application:
 
   Navbar
   
-    - Navbar features differ depending on if the user is an administrator or not an administrator
+    - Contains links to the different pages within the application 
+  
+    - Navbar links differ depending on if the user is an administrator or not an administrator of if the user is logged in or not
     
     - The adminstrator account functionality is a superset of user account functionality
     
