@@ -1706,6 +1706,7 @@
 
           this.products = Object.values(this.products);
           this.products.map(product => {
+            console.log(product.image);
             product.image = "https://s3-us-east-2.amazonaws.com/flybuy-bulldog/".concat(product.image);
           });
         });
