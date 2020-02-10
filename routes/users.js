@@ -3,19 +3,20 @@ const router = express.Router();
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
 const multer = require("multer");
+const aws = require("aws-sdk");
+const multerS3 = require("multer-s3");
 
 const config = require("../config/database");
 const User = require("../models/user");
 const Product = require("../models/product");
 
-const storage = multer.diskStorage({
-  destination: (req, file, callback) => {
-    callback(null, "./uploads");
-  },
-  filename: (req, file, callback) => {
-    callback(null, Date.now() + file.originalname);
-  }
+aws.config.update({
+  secretAccessKey: "uTdVzJhwCenWXMsG12MeHc0V1vGIcwXPk0WrMh29",
+  accesskeyId: "AKIAIBQBSZ2BSIF2DO3A",
+  region: "us-east-2"
 });
+
+var s3 = new aws.S3();
 
 const fileFilter = (req, file, callback) => {
   if (file.mimetype === "image/jpeg" || "image/png") {
@@ -26,12 +27,45 @@ const fileFilter = (req, file, callback) => {
 };
 
 var upload = multer({
-  storage: storage,
-  limits: {
-    fileSize: 1024 * 1024 * 5
-  },
-  fileFilter: fileFilter
+  storage: multerS3({
+    s3: s3,
+    bucket: "flybuy-bulldog",
+    key: function(req, file, callback) {
+      console.log(file);
+      callback(null, Date.now() + file.originalname);
+    },
+    limits: {
+      fileSize: 1024 * 1024 * 4
+    },
+    fileFilter: fileFilter
+  })
 });
+
+// LOCAL CONFIG
+// const storage = multer.diskStorage({
+//   destination: (req, file, callback) => {
+//     callback(null, "./uploads");
+//   },
+//   filename: (req, file, callback) => {
+//     callback(null, Date.now() + file.originalname);
+//   }
+// });
+
+// const fileFilter = (req, file, callback) => {
+//   if (file.mimetype === "image/jpeg" || "image/png") {
+//     callback(null, true);
+//   } else {
+//     callback(new Error("file type not supported"), false);
+//   }
+// };
+
+// var upload = multer({
+//   storage: storage,
+//   limits: {
+//     fileSize: 1024 * 1024 * 5
+//   },
+//   fileFilter: fileFilter
+// });
 
 // Register
 router.post("/register", (req, res, next) => {
