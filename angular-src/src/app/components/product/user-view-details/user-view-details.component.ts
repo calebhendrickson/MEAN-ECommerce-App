@@ -42,6 +42,7 @@ export class UserViewDetailsComponent implements OnInit {
     });
 
     this.productsInCart = this.productService.getProductsInCart();
+    console.log(this.productsInCart);
     if (this.productsInCart == null) {
       this.cartItemCount = 0;
     } else {
@@ -95,6 +96,7 @@ export class UserViewDetailsComponent implements OnInit {
 
   checkCart(product) {
     this.productsInCart = this.productService.getProductsInCart();
+    console.log(this.productsInCart);
     if (this.productsInCart == null) {
       this.button = false;
       return;

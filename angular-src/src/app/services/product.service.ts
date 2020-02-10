@@ -76,8 +76,10 @@ export class ProductService {
 
   getProductsInCart() {
     var result = JSON.parse(localStorage.getItem("products"));
+    console.log(result);
     if (result == null) {
       var nullArray = [];
+      console.log(nullArray);
       return nullArray;
     }
 
