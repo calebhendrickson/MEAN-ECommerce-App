@@ -37,6 +37,7 @@ export class UserViewDetailsComponent implements OnInit {
       this.product = this.product.product;
       console.log(this.product);
       console.log("hello this has to pop up?");
+      console.log("hello this has to pop up?");
       this.onUpdate(this.product);
       this.checkCart(this.product);
       console.log(this.button);
