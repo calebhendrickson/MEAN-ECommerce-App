@@ -4,6 +4,8 @@ Unique functionality: Administrator accounts can upload, delete, and create prod
 
 Payment functionality not implemented.
 
+You can run this application on your own by downloading the source code and then opening a node.js terminal and runnign npm start in the root folder to start the server. To the start the client, install the angualr cli and open another terminal and navigate to the angular-src folder and run ng serve.
+
 
 This E-Commerce web application was completed using the MEAN stack. Some other important modules/packages include: 
 
@@ -112,6 +114,8 @@ Future Features:
   Better styling
   
   Facebook, Google+, etc. login
+  
+  Increased Security
   
   & many more to be determined
   
