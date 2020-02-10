@@ -7,15 +7,15 @@ Payment functionality not implemented.
 
 This E-Commerce web application was completed using the MEAN stack. Some other important modules/packages include: 
 
-  bcrypt for password hashing
+    - bcrypt for password hashing
   
-  multer for uploading images
+    - multer for uploading images
   
-  passport for json web token user authentication
+    - passport for json web token user authentication
   
-  mongoose for persisting to mongodb
+    - mongoose for persisting to mongodb
   
-  cors to allow cross origin resource sharing
+    - cors to allow cross origin resource sharing
   
 
 Features of the Application:
