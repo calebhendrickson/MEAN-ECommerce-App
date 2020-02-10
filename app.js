@@ -25,7 +25,7 @@ const app = express();
 // setting up server-side routes
 const users = require("./routes/users");
 
-const port = 3000;
+const port = process.env.PORT || 8080;
 
 // cors allows us to make a request to our api from a
 // different domain name

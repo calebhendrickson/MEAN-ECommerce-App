@@ -8,7 +8,7 @@ import { ProductService } from "../../services/product.service";
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-  apiUrl: string = "localhost:3000";
+  apiUrl: string = "http://localhost:3000/";
   products;
 
   constructor(
@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
       //this.products = Object.keys(this.product).map(key => )
       this.products = Object.values(this.products);
       this.products.map(product => {
-        product.image = `http://localhost:3000/${product.image}`;
+        product.image = `${product.image}`;
       });
     });
   }

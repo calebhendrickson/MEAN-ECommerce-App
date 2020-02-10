@@ -8,6 +8,7 @@ import { ProductService } from "../../../services/product.service";
   styleUrls: ["./user-view-details.component.css"]
 })
 export class UserViewDetailsComponent implements OnInit {
+  apiUrl: string = "http://localhost:3000/";
   name: String;
   description: String;
   price: String;
@@ -50,7 +51,7 @@ export class UserViewDetailsComponent implements OnInit {
     this.name = product.name;
     this.description = product.description;
     this.price = product.price;
-    this.image = `http://localhost:3000/${product.image}`;
+    this.image = `${product.image}`;
   }
 
   // check if product is in the cart,

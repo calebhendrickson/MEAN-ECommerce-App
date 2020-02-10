@@ -7,6 +7,7 @@ import { ProductService } from "../../services/product.service";
   styleUrls: ["./product-list.component.css"]
 })
 export class ProductListComponent implements OnInit {
+  apiUrl: string = "http://localhost:3000/";
   products;
 
   constructor(private productService: ProductService) {}
@@ -19,7 +20,7 @@ export class ProductListComponent implements OnInit {
       this.products = Object.values(this.products);
       // console.log(this.products);
       this.products.map(product => {
-        product.image = `http://localhost:3000/${product.image}`;
+        product.image = `${product.image}`;
         console.log(this.products);
       });
     });

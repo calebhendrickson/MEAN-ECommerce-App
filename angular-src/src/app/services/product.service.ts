@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
 import { BehaviorSubject } from "rxjs";
 
@@ -26,7 +26,7 @@ export class ProductService {
     // will receive an argument that will be one of the http response
     // objects in the observable
     return this.http
-      .get("http://localhost:3000/users/dashboard")
+      .get("users/dashboard")
       .pipe(map(res => res));
   }
 
@@ -38,7 +38,7 @@ export class ProductService {
 
   addProduct(product) {
     
-    return this.http.post("http://localhost:3000/users/dashboard", product);
+    return this.http.post("users/dashboard", product);
   }
 
   // addImage(image){
@@ -50,7 +50,7 @@ export class ProductService {
   // delete product
   deleteProduct(product) {
     return this.http.delete(
-      `http://localhost:3000/users/dashboard/${product._id}`
+      `users/dashboard/${product._id}`
     );
   }
 
@@ -63,14 +63,14 @@ export class ProductService {
   // update product
   updateProduct(product) {
     return this.http.put(
-      `http://localhost:3000/users/dashboard/${product._id}`,
+      `dashboard/${product._id}`,
       product
     );
   }
 
   getProductById(_id) {
     return this.http
-      .get(`http://localhost:3000/users/dashboard/${_id}`)
+      .get(`users/dashboard/${_id}`)
       .pipe(map(res => res));
   }
 
