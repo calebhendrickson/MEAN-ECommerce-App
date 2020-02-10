@@ -1,0 +1,21 @@
+<h2 class="page-header">Product Details</h2>
+<div>
+  <div>
+    <img class="images" src="{{ image }}" />
+    <div>
+      <div>
+        <h4>{{ name }}</h4>
+      </div>
+      <div>
+        {{ price }}
+      </div>
+    </div>
+    <!-- <a routerLink="/view/{{ _id }}"> View </a> -->
+    <div>
+      <button *ngIf="!button" (click)="onAddToCart()">Add to Cart</button>
+      <button *ngIf="button" (click)="onRemoveFromCart()">
+        Remove From Cart
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="jumbotron text-center">
+  <h1>FlyBuy Store</h1>
+  <p class="lead">
+    Welcome to our store. Have it your way
+  </p>
+  <h1></h1>
+  <p>In Stock:</p>
+  <!-- <div>
+    <a class="btn btn-primary" [routerLink]="['/register']">Register</a>
+    <a class="btn btn-dark" [routerLink]="['/login']">Login</a>
+  </div> -->
+</div>
+
+<section>
+  <app-user-view-product
+    *ngFor="let product of products"
+    [product]="product"
+  ></app-user-view-product>
+</section>

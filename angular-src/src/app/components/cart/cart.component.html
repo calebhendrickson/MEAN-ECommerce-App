@@ -1,0 +1,132 @@
+<h1></h1>
+<h1>Your Cart</h1>
+<ul class="list-group">
+  <table>
+    <thead>
+      <tr *ngIf="checkCart()">
+        <th></th>
+        <th
+          style="vertical-align: middle;
+          text-align: center;"
+        >
+          Name
+        </th>
+        <th
+          style="vertical-align: middle;
+          text-align: center;"
+        >
+          Description
+        </th>
+        <th
+          style="vertical-align: middle;
+          text-align: center;"
+        >
+          Price
+        </th>
+        <th
+          style="vertical-align: middle;
+          text-align: center;"
+        >
+          Quantity
+        </th>
+        <th
+          style="vertical-align: middle;
+          text-align: center;"
+        >
+          Change Quantity
+        </th>
+        <th
+          style="vertical-align: middle;
+          text-align: center;"
+        >
+          Cost
+        </th>
+        <th
+          style="vertical-align: middle;
+          text-align: center;"
+        >
+          Remove Item
+        </th>
+      </tr>
+    </thead>
+    <tr *ngFor="let product of productsInCart; let q = index">
+      <td
+        style="width:200px; height:200px; vertical-align: middle;
+        text-align: center;"
+      >
+        <div class="product-grid__img-wrapper">
+          <img
+            class="images"
+            src="{{ product.image }}"
+            height="auto"
+            width="100px"
+          />
+        </div>
+      </td>
+      <td
+        style="width:200px; height:200px; vertical-align: middle;
+        text-align: center;"
+      >
+        {{ product.name }}
+      </td>
+      <td
+        style="width:200px; height:200px; vertical-align: middle;
+        text-align: center;"
+      >
+        {{ product.description }}
+      </td>
+      <td
+        style="width:200px; height:200px; vertical-align: middle;
+        text-align: center;"
+      >
+        {{ product.price }}
+      </td>
+      <td
+        style="width:200px; height:200px; vertical-align: middle;
+        text-align: center;"
+      >
+        {{ product.Quantity }}
+      </td>
+      <td
+        style="width:100px; height:100px; vertical-align: middle;
+        text-align: center;"
+      >
+        <button (click)="onAddQuantity(product)" class="btn btn-success">
+          +
+        </button>
+        <input
+          type="text"
+          [ngModel]="product.Quantity"
+          (ngModelChange)="product.Quantity = $event"
+          class="form-control"
+        />
+        <button
+          *ngIf="getQuantity(product.Quantity)"
+          (click)="onRemoveQuantity(product)"
+          class="btn btn-danger"
+        >
+          -
+        </button>
+      </td>
+      <td
+        style="width:100px; height:100px; vertical-align: middle;
+        text-align: center;"
+      >
+        {{ product.price * product.Quantity }}
+      </td>
+      <td
+        style="width:100px; height:100px; vertical-align: middle;
+        text-align: center;"
+      >
+        <button (click)="onRemoveProduct(product)">Remove</button>
+      </td>
+    </tr>
+  </table>
+</ul>
+
+<div *ngIf="checkCart()" style="vertical-align: middle; text-align: right;">
+  <h2>Total Comes to ${{ allTotal }}</h2>
+  <div style="vertical-align: middle; text-align: right; padding-right: 100px">
+    <button>Checkout</button>
+  </div>
+</div>
