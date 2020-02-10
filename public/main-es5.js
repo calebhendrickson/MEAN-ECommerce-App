@@ -1706,7 +1706,7 @@
 
           this.products = Object.values(this.products);
           this.products.map(product => {
-            product.image = "https://nameless-castle-68093.herokuapp.com/".concat(product.image);
+            product.image = "https://s3-us-east-2.amazonaws.com/flybuy-bulldog/".concat(product.image);
           });
         });
       }
@@ -2062,7 +2062,7 @@
           this.products = Object.values(this.products); // console.log(this.products);
 
           this.products.map(product => {
-            product.image = "https://nameless-castle-68093.herokuapp.com/".concat(product.image);
+            product.image = "https://s3-us-east-2.amazonaws.com/flybuy-bulldog/".concat(product.image);
             console.log(this.products);
           });
         });
@@ -2292,6 +2292,8 @@
           this.product = product;
           this.product = this.product.product;
           console.log(this.product);
+          console.log("hello this has to pop up?");
+          console.log("hello this has to pop up?");
           this.onUpdate(this.product);
           this.checkCart(this.product);
           console.log(this.button);
@@ -2309,11 +2311,12 @@
       }
 
       onUpdate(product) {
+        console.log("checking for update?");
         this._id = product._id;
         this.name = product.name;
         this.description = product.description;
         this.price = product.price;
-        this.image = "https://nameless-castle-68093.herokuapp.com/".concat(product.image);
+        this.image = "https://s3-us-east-2.amazonaws.com/flybuy-bulldog/".concat(product.image);
       } // check if product is in the cart,
       // if it is, render remove button
       // if it is not, render add button

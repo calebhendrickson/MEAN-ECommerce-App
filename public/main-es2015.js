@@ -982,7 +982,7 @@ let HomeComponent = class HomeComponent {
             //this.products = Object.keys(this.product).map(key => )
             this.products = Object.values(this.products);
             this.products.map(product => {
-                product.image = `https://nameless-castle-68093.herokuapp.com/${product.image}`;
+                product.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
             });
         });
     }
@@ -1203,7 +1203,7 @@ let ProductListComponent = class ProductListComponent {
             this.products = Object.values(this.products);
             // console.log(this.products);
             this.products.map(product => {
-                product.image = `https://nameless-castle-68093.herokuapp.com/${product.image}`;
+                product.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
                 console.log(this.products);
             });
         });
@@ -1361,6 +1361,8 @@ let UserViewDetailsComponent = class UserViewDetailsComponent {
             this.product = product;
             this.product = this.product.product;
             console.log(this.product);
+            console.log("hello this has to pop up?");
+            console.log("hello this has to pop up?");
             this.onUpdate(this.product);
             this.checkCart(this.product);
             console.log(this.button);
@@ -1376,11 +1378,12 @@ let UserViewDetailsComponent = class UserViewDetailsComponent {
         this.productService.updateCartCount(this.cartItemCount);
     }
     onUpdate(product) {
+        console.log("checking for update?");
         this._id = product._id;
         this.name = product.name;
         this.description = product.description;
         this.price = product.price;
-        this.image = `https://nameless-castle-68093.herokuapp.com/${product.image}`;
+        this.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
     }
     // check if product is in the cart,
     // if it is, render remove button
