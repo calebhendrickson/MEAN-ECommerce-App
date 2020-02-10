@@ -78,7 +78,6 @@ export class ProductService {
     var result = JSON.parse(localStorage.getItem("products"));
     if (result == null) {
       var nullArray = [];
-      nullArray[0] = null;
       return nullArray;
     }
 
