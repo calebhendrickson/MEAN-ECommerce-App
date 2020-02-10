@@ -25,9 +25,7 @@ export class ProductService {
     // map method expects a function as its argument, this function
     // will receive an argument that will be one of the http response
     // objects in the observable
-    return this.http
-      .get("users/dashboard")
-      .pipe(map(res => res));
+    return this.http.get("users/dashboard").pipe(map(res => res));
   }
 
   // getImages() {
@@ -37,7 +35,6 @@ export class ProductService {
   // }
 
   addProduct(product) {
-    
     return this.http.post("users/dashboard", product);
   }
 
@@ -49,9 +46,7 @@ export class ProductService {
 
   // delete product
   deleteProduct(product) {
-    return this.http.delete(
-      `users/dashboard/${product._id}`
-    );
+    return this.http.delete(`users/dashboard/${product._id}`);
   }
 
   // deleteImage(image){
@@ -62,16 +57,11 @@ export class ProductService {
 
   // update product
   updateProduct(product) {
-    return this.http.put(
-      `dashboard/${product._id}`,
-      product
-    );
+    return this.http.put(`dashboard/${product._id}`, product);
   }
 
   getProductById(_id) {
-    return this.http
-      .get(`users/dashboard/${_id}`)
-      .pipe(map(res => res));
+    return this.http.get(`users/dashboard/${_id}`).pipe(map(res => res));
   }
 
   // getImageById(_id){
@@ -85,6 +75,13 @@ export class ProductService {
   }
 
   getProductsInCart() {
+    var result = JSON.parse(localStorage.getItem("products"));
+    if (result == null) {
+      var nullArray = [];
+      nullArray[0] = null;
+      return nullArray;
+    }
+
     return JSON.parse(localStorage.getItem("products"));
   }
 

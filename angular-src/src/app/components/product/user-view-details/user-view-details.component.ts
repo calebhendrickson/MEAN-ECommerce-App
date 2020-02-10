@@ -42,7 +42,11 @@ export class UserViewDetailsComponent implements OnInit {
     });
 
     this.productsInCart = this.productService.getProductsInCart();
-    this.cartItemCount = this.productsInCart.length;
+    if (this.productsInCart == null) {
+      this.cartItemCount = 0;
+    } else {
+      this.cartItemCount = this.productsInCart.length;
+    }
     this.productService.updateCartCount(this.cartItemCount);
   }
 
