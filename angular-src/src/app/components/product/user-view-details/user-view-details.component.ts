@@ -36,6 +36,7 @@ export class UserViewDetailsComponent implements OnInit {
       this.product = product;
       this.product = this.product.product;
       console.log(this.product);
+      console.log("hello this has to pop up?");
       this.onUpdate(this.product);
       this.checkCart(this.product);
       console.log(this.button);
@@ -52,6 +53,7 @@ export class UserViewDetailsComponent implements OnInit {
   }
 
   onUpdate(product) {
+    console.log("checking for update?");
     this._id = product._id;
     this.name = product.name;
     this.description = product.description;
