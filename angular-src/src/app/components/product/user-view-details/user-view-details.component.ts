@@ -93,6 +93,7 @@ export class UserViewDetailsComponent implements OnInit {
     this.productsInCart = this.productService.getProductsInCart();
     if (this.productsInCart == null) {
       this.button = false;
+      return;
     } else if (this.productsInCart[0] == null) {
       this.button = false;
     }
