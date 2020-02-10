@@ -23,6 +23,10 @@ export class AddProductFormComponent implements OnInit {
     product.append("description", this.description);
     product.append("price", this.price);
     product.append("file", this.image);
+    console.log(this.name);
+    console.log(this.description);
+    console.log(this.price);
+    console.log(this.image);
 
     // const product = {
     //   name: this.name,

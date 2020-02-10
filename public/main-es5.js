@@ -1467,7 +1467,11 @@
         product.append("name", this.name);
         product.append("description", this.description);
         product.append("price", this.price);
-        product.append("file", this.image); // const product = {
+        product.append("file", this.image);
+        console.log(this.name);
+        console.log(this.description);
+        console.log(this.price);
+        console.log(this.image); // const product = {
         //   name: this.name,
         //   description: this.description,
         //   price: this.price,
