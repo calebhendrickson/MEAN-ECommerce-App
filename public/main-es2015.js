@@ -982,7 +982,7 @@ let HomeComponent = class HomeComponent {
             //this.products = Object.keys(this.product).map(key => )
             this.products = Object.values(this.products);
             this.products.map(product => {
-                product.image = `${product.image}`;
+                product.image = `https://nameless-castle-68093.herokuapp.com/${product.image}`;
             });
         });
     }
@@ -1203,7 +1203,7 @@ let ProductListComponent = class ProductListComponent {
             this.products = Object.values(this.products);
             // console.log(this.products);
             this.products.map(product => {
-                product.image = `${product.image}`;
+                product.image = `https://nameless-castle-68093.herokuapp.com/${product.image}`;
                 console.log(this.products);
             });
         });
@@ -1366,7 +1366,13 @@ let UserViewDetailsComponent = class UserViewDetailsComponent {
             console.log(this.button);
         });
         this.productsInCart = this.productService.getProductsInCart();
-        this.cartItemCount = this.productsInCart.length;
+        console.log(this.productsInCart);
+        if (this.productsInCart == null) {
+            this.cartItemCount = 0;
+        }
+        else {
+            this.cartItemCount = this.productsInCart.length;
+        }
         this.productService.updateCartCount(this.cartItemCount);
     }
     onUpdate(product) {
@@ -1374,7 +1380,7 @@ let UserViewDetailsComponent = class UserViewDetailsComponent {
         this.name = product.name;
         this.description = product.description;
         this.price = product.price;
-        this.image = `${product.image}`;
+        this.image = `https://nameless-castle-68093.herokuapp.com/${product.image}`;
     }
     // check if product is in the cart,
     // if it is, render remove button
@@ -1409,15 +1415,22 @@ let UserViewDetailsComponent = class UserViewDetailsComponent {
     }
     checkCart(product) {
         this.productsInCart = this.productService.getProductsInCart();
-        if (this.productsInCart[0] == null) {
+        console.log(this.productsInCart);
+        if (this.productsInCart == null) {
+            this.button = false;
+            return;
+        }
+        else if (this.productsInCart[0] == null) {
             this.button = false;
         }
-        // let tempProduct = this.productsInCart.find(p => p._id == this._id);
-        this.productsInCart.map(cart => {
-            if (cart._id == product._id) {
-                this.button = true;
-            }
-        });
+        else {
+            // let tempProduct = this.productsInCart.find(p => p._id == this._id);
+            this.productsInCart.map(cart => {
+                if (cart._id == product._id) {
+                    this.button = true;
+                }
+            });
+        }
     }
 };
 UserViewDetailsComponent.ctorParameters = () => [
@@ -1535,7 +1548,10 @@ let UserViewProductComponent = class UserViewProductComponent {
         // if not logged in: this.productsInCart
         // if logged in: this.productsInCart[0]
         if (this.authService.loggedIn()) {
-            if (this.productsInCart[0] == null) {
+            if (this.productsInCart == null) {
+                this.button = false;
+            }
+            else if (this.productsInCart[0] == null) {
                 this.button = false;
             }
             else {
@@ -1548,6 +1564,9 @@ let UserViewProductComponent = class UserViewProductComponent {
         }
         else {
             if (this.productsInCart == null) {
+                this.button = false;
+            }
+            else if (this.productsInCart[0] == null) {
                 this.button = false;
             }
             else {
@@ -1994,9 +2013,7 @@ let ProductService = class ProductService {
         // map method expects a function as its argument, this function
         // will receive an argument that will be one of the http response
         // objects in the observable
-        return this.http
-            .get("users/dashboard")
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(res => res));
+        return this.http.get("users/dashboard").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(res => res));
     }
     // getImages() {
     //   return this.http
@@ -2025,9 +2042,7 @@ let ProductService = class ProductService {
         return this.http.put(`dashboard/${product._id}`, product);
     }
     getProductById(_id) {
-        return this.http
-            .get(`users/dashboard/${_id}`)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(res => res));
+        return this.http.get(`users/dashboard/${_id}`).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(res => res));
     }
     // getImageById(_id){
     //   return this.http
@@ -2038,6 +2053,13 @@ let ProductService = class ProductService {
         localStorage.setItem("products", JSON.stringify(product));
     }
     getProductsInCart() {
+        var result = JSON.parse(localStorage.getItem("products"));
+        console.log(result);
+        if (result == null) {
+            var nullArray = [];
+            console.log(nullArray);
+            return nullArray;
+        }
         return JSON.parse(localStorage.getItem("products"));
     }
     removeAllFromCart() {

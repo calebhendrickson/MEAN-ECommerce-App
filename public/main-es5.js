@@ -1706,7 +1706,7 @@
 
           this.products = Object.values(this.products);
           this.products.map(product => {
-            product.image = "".concat(product.image);
+            product.image = "https://nameless-castle-68093.herokuapp.com/".concat(product.image);
           });
         });
       }
@@ -2062,7 +2062,7 @@
           this.products = Object.values(this.products); // console.log(this.products);
 
           this.products.map(product => {
-            product.image = "".concat(product.image);
+            product.image = "https://nameless-castle-68093.herokuapp.com/".concat(product.image);
             console.log(this.products);
           });
         });
@@ -2297,7 +2297,14 @@
           console.log(this.button);
         });
         this.productsInCart = this.productService.getProductsInCart();
-        this.cartItemCount = this.productsInCart.length;
+        console.log(this.productsInCart);
+
+        if (this.productsInCart == null) {
+          this.cartItemCount = 0;
+        } else {
+          this.cartItemCount = this.productsInCart.length;
+        }
+
         this.productService.updateCartCount(this.cartItemCount);
       }
 
@@ -2306,7 +2313,7 @@
         this.name = product.name;
         this.description = product.description;
         this.price = product.price;
-        this.image = "".concat(product.image);
+        this.image = "https://nameless-castle-68093.herokuapp.com/".concat(product.image);
       } // check if product is in the cart,
       // if it is, render remove button
       // if it is not, render add button
@@ -2344,17 +2351,21 @@
 
       checkCart(product) {
         this.productsInCart = this.productService.getProductsInCart();
+        console.log(this.productsInCart);
 
-        if (this.productsInCart[0] == null) {
+        if (this.productsInCart == null) {
           this.button = false;
-        } // let tempProduct = this.productsInCart.find(p => p._id == this._id);
-
-
-        this.productsInCart.map(cart => {
-          if (cart._id == product._id) {
-            this.button = true;
-          }
-        });
+          return;
+        } else if (this.productsInCart[0] == null) {
+          this.button = false;
+        } else {
+          // let tempProduct = this.productsInCart.find(p => p._id == this._id);
+          this.productsInCart.map(cart => {
+            if (cart._id == product._id) {
+              this.button = true;
+            }
+          });
+        }
       }
 
     };
@@ -2519,7 +2530,9 @@
         // if logged in: this.productsInCart[0]
 
         if (this.authService.loggedIn()) {
-          if (this.productsInCart[0] == null) {
+          if (this.productsInCart == null) {
+            this.button = false;
+          } else if (this.productsInCart[0] == null) {
             this.button = false;
           } else {
             this.productsInCart.map(cart => {
@@ -2530,6 +2543,8 @@
           }
         } else {
           if (this.productsInCart == null) {
+            this.button = false;
+          } else if (this.productsInCart[0] == null) {
             this.button = false;
           } else {
             this.productsInCart.map(cart => {
@@ -3230,6 +3245,15 @@
       }
 
       getProductsInCart() {
+        var result = JSON.parse(localStorage.getItem("products"));
+        console.log(result);
+
+        if (result == null) {
+          var nullArray = [];
+          console.log(nullArray);
+          return nullArray;
+        }
+
         return JSON.parse(localStorage.getItem("products"));
       }
 
