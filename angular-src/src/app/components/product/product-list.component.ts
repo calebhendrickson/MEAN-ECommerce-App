@@ -20,7 +20,7 @@ export class ProductListComponent implements OnInit {
       this.products = Object.values(this.products);
       // console.log(this.products);
       this.products.map(product => {
-        product.image = `${product.image}`;
+        product.image = `https://nameless-castle-68093.herokuapp.com/${product.image}`;
         console.log(this.products);
       });
     });

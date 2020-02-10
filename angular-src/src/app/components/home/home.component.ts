@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
       //this.products = Object.keys(this.product).map(key => )
       this.products = Object.values(this.products);
       this.products.map(product => {
-        product.image = `${product.image}`;
+        product.image = `https://nameless-castle-68093.herokuapp.com/${product.image}`;
       });
     });
   }

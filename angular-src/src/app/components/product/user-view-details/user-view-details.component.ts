@@ -51,7 +51,7 @@ export class UserViewDetailsComponent implements OnInit {
     this.name = product.name;
     this.description = product.description;
     this.price = product.price;
-    this.image = `${product.image}`;
+    this.image = `https://nameless-castle-68093.herokuapp.com/${product.image}`;
   }
 
   // check if product is in the cart,
