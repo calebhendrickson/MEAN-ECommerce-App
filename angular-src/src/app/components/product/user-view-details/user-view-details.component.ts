@@ -91,7 +91,9 @@ export class UserViewDetailsComponent implements OnInit {
 
   checkCart(product) {
     this.productsInCart = this.productService.getProductsInCart();
-    if (this.productsInCart[0] == null) {
+    if (this.productsInCart == null) {
+      this.button = false;
+    } else if (this.productsInCart[0] == null) {
       this.button = false;
     }
     // let tempProduct = this.productsInCart.find(p => p._id == this._id);
