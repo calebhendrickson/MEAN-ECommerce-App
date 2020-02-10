@@ -96,12 +96,13 @@ export class UserViewDetailsComponent implements OnInit {
       return;
     } else if (this.productsInCart[0] == null) {
       this.button = false;
+    } else {
+      // let tempProduct = this.productsInCart.find(p => p._id == this._id);
+      this.productsInCart.map(cart => {
+        if (cart._id == product._id) {
+          this.button = true;
+        }
+      });
     }
-    // let tempProduct = this.productsInCart.find(p => p._id == this._id);
-    this.productsInCart.map(cart => {
-      if (cart._id == product._id) {
-        this.button = true;
-      }
-    });
   }
 }

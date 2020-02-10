@@ -87,7 +87,9 @@ export class UserViewProductComponent implements OnInit {
     // if logged in: this.productsInCart[0]
 
     if (this.authService.loggedIn()) {
-      if (this.productsInCart[0] == null) {
+      if (this.productsInCart == null) {
+        this.button = false;
+      } else if (this.productsInCart[0] == null) {
         this.button = false;
       } else {
         this.productsInCart.map(cart => {
@@ -98,6 +100,8 @@ export class UserViewProductComponent implements OnInit {
       }
     } else {
       if (this.productsInCart == null) {
+        this.button = false;
+      } else if (this.productsInCart[0] == null) {
         this.button = false;
       } else {
         this.productsInCart.map(cart => {
