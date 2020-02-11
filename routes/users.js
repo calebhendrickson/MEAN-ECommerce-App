@@ -10,7 +10,7 @@ const config = require("../config/database");
 const User = require("../models/user");
 const Product = require("../models/product");
 
-//var URL = "https://s3-us-east-2.amazonaws.com/flybuy-bulldog/";
+var URL = "https://s3-us-east-2.amazonaws.com/flybuy-bulldog/";
 //https://flybuy-bulldog.s3.us-east-2.amazonaws.com/
 
 aws.config.update({
@@ -35,7 +35,7 @@ var upload = multer({
     bucket: "flybuy-bulldog",
     key: function(req, file, callback) {
       console.log(file);
-      URL = URL + Date.now() + file.originalname;
+      //URL = URL + Date.now() + file.originalname;
       callback(null, Date.now() + file.originalname);
     },
     acl: "public-read",
@@ -160,20 +160,7 @@ router.get(
 
 // CREATE PRODUCT
 router.post("/dashboard", upload.single("file"), (req, res, next) => {
-  var imageURL;
-
-  const params = {
-    Bucket: "flybuy-bulldog",
-    Key: Date.now() + req.body.filename,
-    ContentType: req.body.contentType
-  };
-
-  s3.getSignedUrl("putObject", params, (err, url) => {
-    if (err) {
-      return err;
-    }
-    imageURL = url;
-  });
+  var imageURL = URL + Date.now() + req.body.filename;
 
   console.log(imageURL);
   console.log(req.file);
@@ -186,7 +173,7 @@ router.post("/dashboard", upload.single("file"), (req, res, next) => {
 
   Product.addProduct(newProduct, (err, product) => {
     if (err) {
-      res.json({ success: false, msg: `the message is` });
+      res.json({ success: false, msg: imageURL });
     } else {
       res.json({ product: product, msg: imageURL });
     }
@@ -211,6 +198,16 @@ router.get("/dashboard/:_id", (req, res, next) => {
     if (err) {
       res.json({ success: false, msg: "failed to get product" });
     } else {
+      // const params = {
+      //   Bucket: "flybuy-bulldog",
+      //   Key: Date.now() + product.image,
+      //   //ContentType: req.body.contentType
+      // };
+      // s3.getObject(params, function(err, data){
+      //   if (err) {
+
+      //   }
+      // })
       res.json({ product: product });
       //res.json({ success: true, msg: "product created" });
     }
