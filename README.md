@@ -23,7 +23,7 @@ This E-Commerce web application was completed using the MEAN stack. Some other i
     
     - Heroku for cloud web host
     
-    - AWS s3 for cloud file storage (for ths images)
+    - AWS s3 for cloud file storage (for the images)
   
 
 Features of the Application:
