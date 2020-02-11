@@ -10,7 +10,8 @@ const config = require("../config/database");
 const User = require("../models/user");
 const Product = require("../models/product");
 
-var URL = "https://s3-us-east-2.amazonaws.com/flybuy-bulldog/";
+//var URL = "https://s3-us-east-2.amazonaws.com/flybuy-bulldog/";
+//https://flybuy-bulldog.s3.us-east-2.amazonaws.com/
 
 aws.config.update({
   secretAccessKey: "uTdVzJhwCenWXMsG12MeHc0V1vGIcwXPk0WrMh29",
@@ -184,7 +185,7 @@ router.post("/dashboard", upload.single("file"), (req, res, next) => {
 
   Product.addProduct(newProduct, (err, product) => {
     if (err) {
-      res.json({ success: false, msg: `the message is... ${req.body}` });
+      res.json({ success: false, msg: `the message is` });
     } else {
       res.json({ product: product, msg: imageURL });
     }
