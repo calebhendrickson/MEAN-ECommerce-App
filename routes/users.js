@@ -35,7 +35,7 @@ var upload = multer({
     bucket: "flybuy-bulldog",
     key: function(req, file, callback) {
       console.log(file);
-      //URL = URL + Date.now() + file.originalname;
+      URL = URL + Date.now() + file.originalname;
       callback(null, Date.now() + file.originalname);
     },
     acl: "public-read",
@@ -160,7 +160,7 @@ router.get(
 
 // CREATE PRODUCT
 router.post("/dashboard", upload.single("file"), (req, res, next) => {
-  var imageURL = URL + Date.now() + req.body.filename;
+  //var imageURL = URL + Date.now() + req.body.file.name;
 
   console.log(imageURL);
   console.log(req.file);
@@ -168,14 +168,14 @@ router.post("/dashboard", upload.single("file"), (req, res, next) => {
     name: req.body.name,
     description: req.body.description,
     price: req.body.price,
-    image: imageURL
+    image: URL
   });
 
   Product.addProduct(newProduct, (err, product) => {
     if (err) {
-      res.json({ success: false, msg: imageURL });
+      res.json({ success: false, msg: URL });
     } else {
-      res.json({ product: product, msg: imageURL });
+      res.json({ product: product, msg: URL });
     }
   });
 });
