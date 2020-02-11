@@ -59,7 +59,8 @@ export class UserViewDetailsComponent implements OnInit {
     this.name = product.name;
     this.description = product.description;
     this.price = product.price;
-    this.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
+    //this.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
+    this.image = product.image;
   }
 
   // check if product is in the cart,

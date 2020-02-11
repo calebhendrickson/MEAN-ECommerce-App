@@ -987,7 +987,8 @@ let HomeComponent = class HomeComponent {
             this.products = Object.values(this.products);
             this.products.map(product => {
                 console.log(product.image);
-                product.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
+                //product.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
+                product.image = product.image;
             });
         });
     }
@@ -1208,7 +1209,8 @@ let ProductListComponent = class ProductListComponent {
             this.products = Object.values(this.products);
             // console.log(this.products);
             this.products.map(product => {
-                product.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
+                //product.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
+                product.image = product.image;
                 console.log(this.products);
             });
         });
@@ -1388,7 +1390,8 @@ let UserViewDetailsComponent = class UserViewDetailsComponent {
         this.name = product.name;
         this.description = product.description;
         this.price = product.price;
-        this.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
+        //this.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
+        this.image = product.image;
     }
     // check if product is in the cart,
     // if it is, render remove button

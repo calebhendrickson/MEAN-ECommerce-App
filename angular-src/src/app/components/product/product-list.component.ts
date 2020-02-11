@@ -20,7 +20,8 @@ export class ProductListComponent implements OnInit {
       this.products = Object.values(this.products);
       // console.log(this.products);
       this.products.map(product => {
-        product.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
+        //product.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
+        product.image = product.image;
         console.log(this.products);
       });
     });
