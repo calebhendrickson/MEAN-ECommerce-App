@@ -160,7 +160,7 @@ router.get(
 
 // CREATE PRODUCT
 router.post("/dashboard", upload.single("file"), (req, res, next) => {
-  var imageURL = URL + Date.now() + req.body.file.name;
+  var imageURL = URL + Date.now() + req.file.path;
 
   console.log(imageURL);
   console.log(req.file);
