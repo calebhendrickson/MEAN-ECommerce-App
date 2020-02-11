@@ -18,6 +18,12 @@ This E-Commerce web application was completed using the MEAN stack. Some other i
     - mongoose for persisting to mongodb
   
     - cors to allow cross origin resource sharing
+    
+    - mLab for cloud database host
+    
+    - Heroku for cloud web host
+    
+    - AWS s3 for cloud file storage (for ths images)
   
 
 Features of the Application:
