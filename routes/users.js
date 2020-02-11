@@ -186,7 +186,7 @@ router.post("/dashboard", upload.single("file"), (req, res, next) => {
     if (err) {
       res.json({ success: false, msg: `the message is... ${req.body}` });
     } else {
-      res.json({ product: product });
+      res.json({ product: product, msg: imageURL });
     }
   });
 });
