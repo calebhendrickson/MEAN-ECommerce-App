@@ -10,6 +10,8 @@ const config = require("../config/database");
 const User = require("../models/user");
 const Product = require("../models/product");
 
+var URL = "https://s3-us-east-2.amazonaws.com/flybuy-bulldog/";
+
 aws.config.update({
   secretAccessKey: "uTdVzJhwCenWXMsG12MeHc0V1vGIcwXPk0WrMh29",
   accesskeyId: "AKIAIBQBSZ2BSIF2DO3A",
@@ -32,6 +34,7 @@ var upload = multer({
     bucket: "flybuy-bulldog",
     key: function(req, file, callback) {
       console.log(file);
+      URL = URL + Date.now() + file.originalname;
       callback(null, Date.now() + file.originalname);
     },
     limits: {
@@ -160,7 +163,7 @@ router.post("/dashboard", upload.single("file"), (req, res, next) => {
     name: req.body.name,
     description: req.body.description,
     price: req.body.price,
-    image: req.file.path
+    image: URL
   });
 
   Product.addProduct(newProduct, (err, product) => {
