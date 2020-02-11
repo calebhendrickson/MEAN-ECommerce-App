@@ -38,6 +38,7 @@ var upload = multer({
       URL = URL + Date.now() + file.originalname;
       callback(null, Date.now() + file.originalname);
     },
+    acl: "public-read",
     limits: {
       fileSize: 1024 * 1024 * 4
     },
