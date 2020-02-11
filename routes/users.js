@@ -165,7 +165,7 @@ router.post("/dashboard", upload.single("file"), (req, res, next) => {
 
   Product.addProduct(newProduct, (err, product) => {
     if (err) {
-      res.json({ success: false, msg: "failed to create product" });
+      res.json({ success: false, msg: err });
     } else {
       res.json({ product: product });
     }

@@ -18,7 +18,7 @@ export class AddProductFormComponent implements OnInit {
   ngOnInit() {}
 
   onProductAdd() {
-    const product = new FormData();
+    var product = new FormData();
     product.append("name", this.name);
     product.append("description", this.description);
     product.append("price", this.price);
