@@ -158,12 +158,28 @@ router.get(
 
 // CREATE PRODUCT
 router.post("/dashboard", upload.single("file"), (req, res, next) => {
+  var imageURL;
+
+  const params = {
+    Bucket: "flybuy-bulldog",
+    Key: Date.now() + req.body.filename,
+    ContentType: req.body.contentType
+  };
+
+  s3.getSignedUrl("putObject", params, (err, url) => {
+    if (err) {
+      return err;
+    }
+    imageURL = url;
+  });
+
+  console.log(imageURL);
   console.log(req.file);
   let newProduct = new Product({
     name: req.body.name,
     description: req.body.description,
     price: req.body.price,
-    image: URL
+    image: imageURL
   });
 
   Product.addProduct(newProduct, (err, product) => {
