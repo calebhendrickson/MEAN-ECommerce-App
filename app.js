@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const config = require("./config/database");
 
 // Connect to database
+// TODO make this purely process.env.MONGODB_URI or localhost so that people cant have access to my db
 mongoose.connect(process.env.MONGODB_URI || config.database);
 
 // On connection
@@ -23,6 +24,7 @@ mongoose.connection.on("error", err => {
 const app = express();
 
 // setting up server-side routes
+// TODO create separate routes for users and products
 const users = require("./routes/users");
 
 const port = process.env.PORT || 8080;
@@ -45,6 +47,7 @@ app.use(passport.session());
 
 require("./config/passport")(passport);
 
+//  TODO create separate routes for users and products
 app.use("/users", users);
 
 app.get("/", (req, res) => {

@@ -31,7 +31,6 @@ export class CartComponent implements OnInit {
 
     this.cartItemCount = this.productsInCart.length;
     this.productService.updateCartCount(this.cartItemCount);
-    //
   }
 
   onAddQuantity(product) {
@@ -70,7 +69,6 @@ export class CartComponent implements OnInit {
   }
 
   checkCart() {
-    //this.productsInCart = this.productService.getProductsInCart();
     if (this.productsInCart == null) {
       return false;
     } else if (this.productsInCart.length == 0) {

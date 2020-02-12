@@ -34,7 +34,6 @@
       <li *ngIf="authService.getAdmin()">
         <a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a>
       </li>
-      <!-- <li *ngIf="authService.loggedIn()"> -->
       <li>
         <a class="nav-link" [routerLink]="['/cart']"
           >Cart <span class="badge badge-light">{{ cartItemCount }}</span></a

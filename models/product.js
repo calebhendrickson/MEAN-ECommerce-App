@@ -37,8 +37,8 @@ module.exports.getProductByName = function(name, callback) {
 };
 
 module.exports.addProduct = function(newProduct, callback) {
+  // TODO allow capabilty of multiple images
   Product.create(newProduct, callback);
-  // newProduct.save(callback);
 };
 
 module.exports.deleteProduct = function(_id, callback) {

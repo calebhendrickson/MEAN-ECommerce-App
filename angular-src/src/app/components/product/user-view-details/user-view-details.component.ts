@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router, ActivatedRoute, ParamMap } from "@angular/router";
+import { ActivatedRoute, ParamMap } from "@angular/router";
 import { ProductService } from "../../../services/product.service";
 
 @Component({
@@ -8,13 +8,12 @@ import { ProductService } from "../../../services/product.service";
   styleUrls: ["./user-view-details.component.css"]
 })
 export class UserViewDetailsComponent implements OnInit {
-  apiUrl: string = "http://localhost:3000/";
+  //apiUrl: string = "http://localhost:3000/";
+  //this.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
   name: String;
   description: String;
   price: String;
   image: String;
-  // add: true;
-  // remove: false;
   _id;
   product;
   productsInCart;
@@ -22,7 +21,6 @@ export class UserViewDetailsComponent implements OnInit {
   button = false;
 
   constructor(
-    private router: Router,
     private productService: ProductService,
     private route: ActivatedRoute
   ) {}
@@ -35,16 +33,11 @@ export class UserViewDetailsComponent implements OnInit {
     this.productService.getProductById(this._id).subscribe(product => {
       this.product = product;
       this.product = this.product.product;
-      console.log(this.product);
-      console.log("hello this has to pop up?");
-      console.log("hello this has to pop up?");
       this.onUpdate(this.product);
       this.checkCart(this.product);
-      console.log(this.button);
     });
 
     this.productsInCart = this.productService.getProductsInCart();
-    console.log(this.productsInCart);
     if (this.productsInCart == null) {
       this.cartItemCount = 0;
     } else {
@@ -54,20 +47,12 @@ export class UserViewDetailsComponent implements OnInit {
   }
 
   onUpdate(product) {
-    console.log("checking for update?");
     this._id = product._id;
     this.name = product.name;
     this.description = product.description;
     this.price = product.price;
-    //this.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
     this.image = product.image;
   }
-
-  // check if product is in the cart,
-  // if it is, render remove button
-  // if it is not, render add button
-
-  // use ngIf set to a boolean in the html code
 
   onAddToCart() {
     this.productsInCart = this.productService.getProductsInCart();
@@ -100,14 +85,12 @@ export class UserViewDetailsComponent implements OnInit {
 
   checkCart(product) {
     this.productsInCart = this.productService.getProductsInCart();
-    console.log(this.productsInCart);
     if (this.productsInCart == null) {
       this.button = false;
       return;
     } else if (this.productsInCart[0] == null) {
       this.button = false;
     } else {
-      // let tempProduct = this.productsInCart.find(p => p._id == this._id);
       this.productsInCart.map(cart => {
         if (cart._id == product._id) {
           this.button = true;

@@ -8,6 +8,7 @@ import { ProductService } from "../../services/product.service";
 })
 export class ProductListComponent implements OnInit {
   apiUrl: string = "http://localhost:3000/";
+  //product.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
   products;
 
   constructor(private productService: ProductService) {}
@@ -16,14 +17,10 @@ export class ProductListComponent implements OnInit {
     this.productService.getProducts().subscribe(products => {
       this.products = products;
       this.products = this.products.products;
-      //this.products = Object.keys(this.product).map(key => )
       this.products = Object.values(this.products);
-      // console.log(this.products);
-      this.products.map(product => {
-        //product.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
-        product.image = product.image;
-        console.log(this.products);
-      });
+      // this.products.map(product => {
+      //   product.image = product.image;
+      // });
     });
   }
 

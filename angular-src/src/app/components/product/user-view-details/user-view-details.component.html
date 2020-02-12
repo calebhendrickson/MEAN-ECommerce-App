@@ -10,7 +10,6 @@
         {{ price }}
       </div>
     </div>
-    <!-- <a routerLink="/view/{{ _id }}"> View </a> -->
     <div>
       <button *ngIf="!button" (click)="onAddToCart()">Add to Cart</button>
       <button *ngIf="button" (click)="onRemoveFromCart()">

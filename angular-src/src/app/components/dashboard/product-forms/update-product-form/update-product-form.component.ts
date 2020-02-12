@@ -22,7 +22,6 @@ export class UpdateProductFormComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // get product so we can fill in values
     this.route.paramMap.subscribe((params: ParamMap) => {
       this._id = params.get("_id");
     });
@@ -49,8 +48,6 @@ export class UpdateProductFormComponent implements OnInit {
       price: this.price,
       image: this.image
     };
-
-    console.log(product);
 
     this.productService.updateProduct(product).subscribe(() => {
       this.router.navigate(["/dashboard"]);

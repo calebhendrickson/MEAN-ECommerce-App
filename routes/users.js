@@ -46,7 +46,7 @@ var upload = multer({
   })
 });
 
-// LOCAL CONFIG
+// Multer LOCAL CONFIG
 // const storage = multer.diskStorage({
 //   destination: (req, file, callback) => {
 //     callback(null, "./uploads");
@@ -159,11 +159,10 @@ router.get(
 );
 
 // CREATE PRODUCT
+// Create capability to upload multiple images
 router.post("/dashboard", upload.single("file"), (req, res, next) => {
   var imageURL = URL + req.file.key;
 
-  console.log(imageURL);
-  console.log(req.file);
   let newProduct = new Product({
     name: req.body.name,
     description: req.body.description,
@@ -187,7 +186,6 @@ router.get("/dashboard", (req, res, next) => {
       res.json({ success: false, msg: "failed to create product" });
     } else {
       res.json({ products: products });
-      //res.json({ success: true, msg: "product created" });
     }
   });
 });
@@ -198,18 +196,7 @@ router.get("/dashboard/:_id", (req, res, next) => {
     if (err) {
       res.json({ success: false, msg: "failed to get product" });
     } else {
-      // const params = {
-      //   Bucket: "flybuy-bulldog",
-      //   Key: Date.now() + product.image,
-      //   //ContentType: req.body.contentType
-      // };
-      // s3.getObject(params, function(err, data){
-      //   if (err) {
-
-      //   }
-      // })
       res.json({ product: product });
-      //res.json({ success: true, msg: "product created" });
     }
   });
 });
@@ -226,6 +213,7 @@ router.delete("/dashboard/:_id", (req, res, next) => {
 });
 
 // UPDATE PRODUCT BY ID
+// TODO Include image upadting functionality
 router.put("/dashboard/:_id", (req, res, next) => {
   let newProduct = new Product({
     _id: req.body._id,
@@ -242,7 +230,5 @@ router.put("/dashboard/:_id", (req, res, next) => {
     }
   });
 });
-
-// UPDATE IMAGE BY ID
 
 module.exports = router;
