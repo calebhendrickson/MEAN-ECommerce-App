@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-md navbar-dark bg-dark\">\n  <a class=\"navbar-brand\" href=\"#\">FLYBUY</a>\n  <button\n    class=\"navbar-toggler\"\n    type=\"button\"\n    data-toggle=\"collapse\"\n    data-target=\"#navbarsExampleDefault\"\n    aria-controls=\"navbarsExampleDefault\"\n    aria-expanded=\"false\"\n    aria-label=\"Toggle navigation\"\n  >\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbar\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li>\n        <a class=\"nav-link\" [routerLink]=\"['/']\"\n          >Home <span class=\"sr-only\">(current)</span></a\n        >\n      </li>\n    </ul>\n\n    <ul class=\"nav navbar-nav navbar-right\">\n      <li *ngIf=\"!authService.loggedIn()\">\n        <a class=\"nav-link\" [routerLink]=\"['/login']\">Login</a>\n      </li>\n      <li *ngIf=\"!authService.loggedIn()\">\n        <a class=\"nav-link\" [routerLink]=\"['/register']\">Register</a>\n      </li>\n      <li *ngIf=\"authService.loggedIn()\">\n        <a class=\"nav-link\" [routerLink]=\"['/profile']\">Profile</a>\n      </li>\n      <li *ngIf=\"authService.getAdmin()\">\n        <a class=\"nav-link\" [routerLink]=\"['/dashboard']\">Dashboard</a>\n      </li>\n      <!-- <li *ngIf=\"authService.loggedIn()\"> -->\n      <li>\n        <a class=\"nav-link\" [routerLink]=\"['/cart']\"\n          >Cart <span class=\"badge badge-light\">{{ cartItemCount }}</span></a\n        >\n      </li>\n      <li *ngIf=\"authService.loggedIn()\">\n        <a class=\"nav-link\" (click)=\"onLogoutClick()\" href=\"#\">Logout</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-expand-md navbar-dark bg-dark\">\n  <a class=\"navbar-brand\" href=\"#\">FLYBUY</a>\n  <button\n    class=\"navbar-toggler\"\n    type=\"button\"\n    data-toggle=\"collapse\"\n    data-target=\"#navbarsExampleDefault\"\n    aria-controls=\"navbarsExampleDefault\"\n    aria-expanded=\"false\"\n    aria-label=\"Toggle navigation\"\n  >\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbar\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li>\n        <a class=\"nav-link\" [routerLink]=\"['/']\"\n          >Home <span class=\"sr-only\">(current)</span></a\n        >\n      </li>\n    </ul>\n\n    <ul class=\"nav navbar-nav navbar-right\">\n      <li *ngIf=\"!authService.loggedIn()\">\n        <a class=\"nav-link\" [routerLink]=\"['/login']\">Login</a>\n      </li>\n      <li *ngIf=\"!authService.loggedIn()\">\n        <a class=\"nav-link\" [routerLink]=\"['/register']\">Register</a>\n      </li>\n      <li *ngIf=\"authService.loggedIn()\">\n        <a class=\"nav-link\" [routerLink]=\"['/profile']\">Profile</a>\n      </li>\n      <li *ngIf=\"authService.getAdmin()\">\n        <a class=\"nav-link\" [routerLink]=\"['/dashboard']\">Dashboard</a>\n      </li>\n      <li>\n        <a class=\"nav-link\" [routerLink]=\"['/cart']\"\n          >Cart <span class=\"badge badge-light\">{{ cartItemCount }}</span></a\n        >\n      </li>\n      <li *ngIf=\"authService.loggedIn()\">\n        <a class=\"nav-link\" (click)=\"onLogoutClick()\" href=\"#\">Logout</a>\n      </li>\n    </ul>\n  </div>\n</nav>\n");
 
 /***/ }),
 
@@ -162,7 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h2 class=\"page-header\">Product Details</h2>\n<div>\n  <div>\n    <img class=\"images\" src=\"{{ image }}\" />\n    <div>\n      <div>\n        <h4>{{ name }}</h4>\n      </div>\n      <div>\n        {{ price }}\n      </div>\n    </div>\n    <!-- <a routerLink=\"/view/{{ _id }}\"> View </a> -->\n    <div>\n      <button *ngIf=\"!button\" (click)=\"onAddToCart()\">Add to Cart</button>\n      <button *ngIf=\"button\" (click)=\"onRemoveFromCart()\">\n        Remove From Cart\n      </button>\n    </div>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h2 class=\"page-header\">Product Details</h2>\n<div>\n  <div>\n    <img class=\"images\" src=\"{{ image }}\" />\n    <div>\n      <div>\n        <h4>{{ name }}</h4>\n      </div>\n      <div>\n        {{ price }}\n      </div>\n    </div>\n    <div>\n      <button *ngIf=\"!button\" (click)=\"onAddToCart()\">Add to Cart</button>\n      <button *ngIf=\"button\" (click)=\"onRemoveFromCart()\">\n        Remove From Cart\n      </button>\n    </div>\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -175,7 +175,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <div class=\"col-lg-3 col-md-4 col-sm-6 col-xs-12\">\n  <div>\n    <img class=\"images\" src=\"{{ product.image }}\" />\n    <div>\n      <div>\n        <h4>{{ product.name }}</h4>\n      </div>\n      <div>\n        {{ product.price }}\n      </div>\n    </div>\n    <a routerLink=\"/view/{{ product._id }}\"> View </a>\n    <div>\n      <button *ngIf=\"!button\" (click)=\"onAddToCart(product)\">\n        Add to Cart\n      </button>\n      <button *ngIf=\"button\" (click)=\"onRemoveFromCart(product)\">\n        Remove From Cart\n      </button>\n    </div>\n  </div>\n</div> -->\n\n<!-- Single product -->\n<div class=\"product-grid__product-wrapper\">\n  <div class=\"product-grid__product\">\n    <div class=\"product-grid__img-wrapper\">\n      <img src=\"{{ product.image }}\" alt=\"Img\" class=\"product-grid__img\" />\n    </div>\n    <span class=\"product-grid__title\">{{ product.name }}</span>\n    <span class=\"product-grid__price\">{{ product.price }}</span>\n    <div class=\"product-grid__extend-wrapper\">\n      <div class=\"product-grid__extend\">\n        <p class=\"product-grid__description\">{{ product.description }}</p>\n        <span\n          class=\"product-grid__btn product-grid__add-to-cart\"\n          *ngIf=\"!button\"\n          (click)=\"onAddToCart(product)\"\n          ><i class=\"fa fa-cart-arrow-down\"></i> Add to Cart</span\n        >\n        <span\n          class=\"product-grid__btn product-grid__add-to-cart\"\n          *ngIf=\"button\"\n          (click)=\"onRemoveFromCart(product)\"\n          ><i class=\"fa fa-cart-arrow-down\"></i> Remove From Cart</span\n        >\n        <span\n          class=\"product-grid__btn product-grid__view\"\n          routerLink=\"/view/{{ product._id }}\"\n          ><i class=\"fa fa-eye\"></i> View more</span\n        >\n      </div>\n    </div>\n  </div>\n</div>\n<!-- end Single product -->\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- Single product -->\n<div class=\"product-grid__product-wrapper\">\n  <div class=\"product-grid__product\">\n    <div class=\"product-grid__img-wrapper\">\n      <img src=\"{{ product.image }}\" alt=\"Img\" class=\"product-grid__img\" />\n    </div>\n    <span class=\"product-grid__title\">{{ product.name }}</span>\n    <span class=\"product-grid__price\">{{ product.price }}</span>\n    <div class=\"product-grid__extend-wrapper\">\n      <div class=\"product-grid__extend\">\n        <p class=\"product-grid__description\">{{ product.description }}</p>\n        <span\n          class=\"product-grid__btn product-grid__add-to-cart\"\n          *ngIf=\"!button\"\n          (click)=\"onAddToCart(product)\"\n          ><i class=\"fa fa-cart-arrow-down\"></i> Add to Cart</span\n        >\n        <span\n          class=\"product-grid__btn product-grid__add-to-cart\"\n          *ngIf=\"button\"\n          (click)=\"onRemoveFromCart(product)\"\n          ><i class=\"fa fa-cart-arrow-down\"></i> Remove From Cart</span\n        >\n        <span\n          class=\"product-grid__btn product-grid__view\"\n          routerLink=\"/view/{{ product._id }}\"\n          ><i class=\"fa fa-eye\"></i> View more</span\n        >\n      </div>\n    </div>\n  </div>\n</div>\n<!-- end Single product -->\n");
 
 /***/ }),
 
@@ -649,7 +649,6 @@ let CartComponent = class CartComponent {
         this.calculateAllTotal(this.productsInCart);
         this.cartItemCount = this.productsInCart.length;
         this.productService.updateCartCount(this.cartItemCount);
-        //
     }
     onAddQuantity(product) {
         this.productsInCart = this.productService.getProductsInCart();
@@ -683,7 +682,6 @@ let CartComponent = class CartComponent {
         }
     }
     checkCart() {
-        //this.productsInCart = this.productService.getProductsInCart();
         if (this.productsInCart == null) {
             return false;
         }
@@ -820,17 +818,6 @@ let AddProductFormComponent = class AddProductFormComponent {
         product.append("description", this.description);
         product.append("price", this.price);
         product.append("file", this.image);
-        console.log(this.name);
-        console.log(this.description);
-        console.log(this.price);
-        console.log(this.image);
-        // const product = {
-        //   name: this.name,
-        //   description: this.description,
-        //   price: this.price,
-        //   image: this.image
-        // };
-        console.log(product);
         this.productService.addProduct(product).subscribe(() => {
             this.router.navigate(["/dashboard"]);
         });
@@ -896,7 +883,6 @@ let UpdateProductFormComponent = class UpdateProductFormComponent {
         this.route = route;
     }
     ngOnInit() {
-        // get product so we can fill in values
         this.route.paramMap.subscribe((params) => {
             this._id = params.get("_id");
         });
@@ -920,7 +906,6 @@ let UpdateProductFormComponent = class UpdateProductFormComponent {
             price: this.price,
             image: this.image
         };
-        console.log(product);
         this.productService.updateProduct(product).subscribe(() => {
             this.router.navigate(["/dashboard"]);
         });
@@ -972,30 +957,23 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-//import { DomSanitizer } from "@angular/platform-browser";
 let HomeComponent = class HomeComponent {
-    constructor(productService //private sanitization: DomSanitizer
-    ) {
+    constructor(productService) {
         this.productService = productService;
-        this.apiUrl = "http://localhost:3000/";
     }
     ngOnInit() {
         this.productService.getProducts().subscribe(products => {
             this.products = products;
             this.products = this.products.products;
-            //this.products = Object.keys(this.product).map(key => )
             this.products = Object.values(this.products);
-            this.products.map(product => {
-                console.log(product.image);
-                //product.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
-                product.image = product.image;
-            });
+            // this.products.map(product => {
+            //   product.image = product.image;
+            // });
         });
     }
 };
 HomeComponent.ctorParameters = () => [
-    { type: _services_product_service__WEBPACK_IMPORTED_MODULE_2__["ProductService"] //private sanitization: DomSanitizer
-     }
+    { type: _services_product_service__WEBPACK_IMPORTED_MODULE_2__["ProductService"] }
 ];
 HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1205,14 +1183,10 @@ let ProductListComponent = class ProductListComponent {
         this.productService.getProducts().subscribe(products => {
             this.products = products;
             this.products = this.products.products;
-            //this.products = Object.keys(this.product).map(key => )
             this.products = Object.values(this.products);
-            // console.log(this.products);
-            this.products.map(product => {
-                //product.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
-                product.image = product.image;
-                console.log(this.products);
-            });
+            // this.products.map(product => {
+            //   product.image = product.image;
+            // });
         });
     }
     onDelete(product) {
@@ -1268,35 +1242,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ProductComponent = class ProductComponent {
-    //@Output() update = new EventEmitter();
     constructor(productService, router) {
         this.productService = productService;
         this.router = router;
-        //products;
-        //image;
         this.delete = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
-    ngOnInit() {
-        // this.productService.getProduct().subscribe(products => {
-        //   this.products = products;
-        //   this.products = this.products.products;
-        //   //this.products = Object.keys(this.product).map(key => )
-        //   this.products = Object.values(this.products);
-        //   console.log(this.products);
-        //   this.products.map(product => {
-        //     product.image = `http://localhost:3000/${product.image}`;
-        //     console.log(this.products);
-        //   });
-        // });
-    }
+    ngOnInit() { }
     onProductDelete() {
         this.delete.emit(this.product);
     }
     onProductUpdate() {
-        console.log(this.product._id);
         this.router.navigate(["/update", this.product._id]);
-        console.log(this.router.navigate(["/update", this.product._id]));
-        //this.update.emit(this.product);
     }
 };
 ProductComponent.ctorParameters = () => [
@@ -1353,11 +1309,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let UserViewDetailsComponent = class UserViewDetailsComponent {
-    constructor(router, productService, route) {
-        this.router = router;
+    constructor(productService, route) {
         this.productService = productService;
         this.route = route;
-        this.apiUrl = "http://localhost:3000/";
         this.button = false;
     }
     ngOnInit() {
@@ -1367,15 +1321,10 @@ let UserViewDetailsComponent = class UserViewDetailsComponent {
         this.productService.getProductById(this._id).subscribe(product => {
             this.product = product;
             this.product = this.product.product;
-            console.log(this.product);
-            console.log("hello this has to pop up?");
-            console.log("hello this has to pop up?");
             this.onUpdate(this.product);
             this.checkCart(this.product);
-            console.log(this.button);
         });
         this.productsInCart = this.productService.getProductsInCart();
-        console.log(this.productsInCart);
         if (this.productsInCart == null) {
             this.cartItemCount = 0;
         }
@@ -1385,18 +1334,12 @@ let UserViewDetailsComponent = class UserViewDetailsComponent {
         this.productService.updateCartCount(this.cartItemCount);
     }
     onUpdate(product) {
-        console.log("checking for update?");
         this._id = product._id;
         this.name = product.name;
         this.description = product.description;
         this.price = product.price;
-        //this.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
         this.image = product.image;
     }
-    // check if product is in the cart,
-    // if it is, render remove button
-    // if it is not, render add button
-    // use ngIf set to a boolean in the html code
     onAddToCart() {
         this.productsInCart = this.productService.getProductsInCart();
         if (this.productsInCart == null) {
@@ -1426,7 +1369,6 @@ let UserViewDetailsComponent = class UserViewDetailsComponent {
     }
     checkCart(product) {
         this.productsInCart = this.productService.getProductsInCart();
-        console.log(this.productsInCart);
         if (this.productsInCart == null) {
             this.button = false;
             return;
@@ -1435,7 +1377,6 @@ let UserViewDetailsComponent = class UserViewDetailsComponent {
             this.button = false;
         }
         else {
-            // let tempProduct = this.productsInCart.find(p => p._id == this._id);
             this.productsInCart.map(cart => {
                 if (cart._id == product._id) {
                     this.button = true;
@@ -1445,7 +1386,6 @@ let UserViewDetailsComponent = class UserViewDetailsComponent {
     }
 };
 UserViewDetailsComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _services_product_service__WEBPACK_IMPORTED_MODULE_3__["ProductService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
 ];
@@ -1488,27 +1428,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _services_product_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/product.service */ "./src/app/services/product.service.ts");
-/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/auth.service */ "./src/app/services/auth.service.ts");
-
 
 
 
 
 let UserViewProductComponent = class UserViewProductComponent {
-    constructor(productService, router, authService) {
+    constructor(productService, router) {
         this.productService = productService;
         this.router = router;
-        this.authService = authService;
         this.button = false;
         this.addtocart = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
     ngOnInit() {
-        // var temp = this.productService.getProductsInCart();
-        // let count = 0;
-        // console.log(temp);
-        // for (let i in temp){
-        //   count++;
-        // }
         this.productsInCart = this.productService.getProductsInCart();
         if (this.productsInCart == null) {
             this.cartItemCount = 0;
@@ -1520,7 +1451,6 @@ let UserViewProductComponent = class UserViewProductComponent {
         this.productService.updateCartCount(this.cartItemCount);
     }
     onAddToCart(productFromView) {
-        //this.addtocart.emit(productFromView);
         this.productsInCart = this.productService.getProductsInCart();
         if (this.productsInCart == null) {
             this.productsInCart = [];
@@ -1541,7 +1471,6 @@ let UserViewProductComponent = class UserViewProductComponent {
         this.button = true;
     }
     onRemoveFromCart(product) {
-        //console.log(this.product);
         this.productService.removeFromCart(product);
         this.productsInCart = this.productService.getProductsInCart();
         this.cartItemCount = this.productsInCart.length;
@@ -1549,51 +1478,28 @@ let UserViewProductComponent = class UserViewProductComponent {
         this.button = false;
     }
     onProductUpdate() {
-        console.log(this.product._id);
         this.router.navigate(["/update", this.product._id]);
-        console.log(this.router.navigate(["/update", this.product._id]));
-        //this.update.emit(this.product);
     }
     checkCart(product) {
         this.productsInCart = this.productService.getProductsInCart();
-        // if not logged in: this.productsInCart
-        // if logged in: this.productsInCart[0]
-        if (this.authService.loggedIn()) {
-            if (this.productsInCart == null) {
-                this.button = false;
-            }
-            else if (this.productsInCart[0] == null) {
-                this.button = false;
-            }
-            else {
-                this.productsInCart.map(cart => {
-                    if (cart._id == product._id) {
-                        this.button = true;
-                    }
-                });
-            }
+        if (this.productsInCart == null) {
+            this.button = false;
+        }
+        else if (this.productsInCart[0] == null) {
+            this.button = false;
         }
         else {
-            if (this.productsInCart == null) {
-                this.button = false;
-            }
-            else if (this.productsInCart[0] == null) {
-                this.button = false;
-            }
-            else {
-                this.productsInCart.map(cart => {
-                    if (cart._id == product._id) {
-                        this.button = true;
-                    }
-                });
-            }
+            this.productsInCart.map(cart => {
+                if (cart._id == product._id) {
+                    this.button = true;
+                }
+            });
         }
     }
 };
 UserViewProductComponent.ctorParameters = () => [
     { type: _services_product_service__WEBPACK_IMPORTED_MODULE_3__["ProductService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
 ];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
