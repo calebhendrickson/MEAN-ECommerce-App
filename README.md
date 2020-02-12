@@ -119,6 +119,8 @@ Future Features:
   
   Better styling
   
+  Fix UI so that it works on mobile
+  
   Facebook, Google+, etc. login
   
   Increased Security
