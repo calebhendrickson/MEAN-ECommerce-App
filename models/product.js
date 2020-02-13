@@ -27,7 +27,7 @@ module.exports.getAllProducts = function(callback) {
   Product.find(callback);
 };
 
-module.exports.getAllProductsFiltered(filter) = function(callback) {
+module.exports.getAllProductsFiltered = function(filter, callback) {
   if (filter == "priceAsc") {
     Product.find({}).sort({ price: 1 }, callback);
   } else if (filter == "priceDesc") {
