@@ -27,20 +27,24 @@ export class UpdateProductFormComponent implements OnInit {
     });
 
     this.productService.getProductById(this._id).subscribe(product => {
+      console.log(product);
       this.product = product;
-      this.onUpdate(this.product.product);
+      console.log(this.product);
+      this.populateFormValues(this.product.product);
     });
   }
 
-  onUpdate(product) {
+  populateFormValues(product) {
     this._id = product._id;
     this.name = product.name;
     this.description = product.description;
     this.price = product.price;
     this.image = product.image;
+    console.log(this.image);
+    console.log(product.image);
   }
 
-  onProductUpdate() {
+  onUpdate() {
     const product = {
       _id: this._id,
       name: this.name,
@@ -49,6 +53,7 @@ export class UpdateProductFormComponent implements OnInit {
       image: this.image
     };
 
+    console.log(product);
     this.productService.updateProduct(product).subscribe(() => {
       this.router.navigate(["/dashboard"]);
     });

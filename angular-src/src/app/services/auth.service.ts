@@ -68,29 +68,12 @@ export class AuthService {
   }
 
   getAdmin() {
-    // make sure this line is working if error
-
     const localsession = JSON.parse(localStorage.getItem("user"));
     if (localsession == null) {
       return false;
     }
     const result = localsession.type;
-    //console.log(result);
     return result;
-    // this.getProfile().subscribe(
-    //   profile => {
-    //     this.user = (profile as any).user;
-    //   },
-    //   err => {
-    //     //console.log(err);
-    //     return false;
-    //   }
-    // );
-    // if ((this.user as any).type == true) {
-    //   return true;
-    // } else {
-    //   return false;
-    // }
   }
 
   logout() {

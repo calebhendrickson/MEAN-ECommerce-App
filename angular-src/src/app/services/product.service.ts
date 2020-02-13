@@ -28,58 +28,37 @@ export class ProductService {
     return this.http.get("users/dashboard").pipe(map(res => res));
   }
 
-  // getImages() {
-  //   return this.http
-  //     .get("http://localhost:3000/users/images")
-  //     .pipe(map(res => res));
-  // }
-
+  // add product
   addProduct(product) {
     return this.http.post("users/dashboard", product);
   }
 
-  // addImage(image){
-  //   const formData = new FormData();
-  //   formData.append('file', image);
-  //   return this.http.post("http://localhost:3000/users/images", formData);
-  // }
 
   // delete product
   deleteProduct(product) {
     return this.http.delete(`users/dashboard/${product._id}`);
   }
 
-  // deleteImage(image){
-  //   return this.http.delete(
-  //     `http://localhost:3000/users/dashboard/${image._id}`
-  //   );
-  // }
-
   // update product
   updateProduct(product) {
     return this.http.put(`dashboard/${product._id}`, product);
   }
 
+  // retrieve by id
   getProductById(_id) {
     return this.http.get(`users/dashboard/${_id}`).pipe(map(res => res));
   }
 
-  // getImageById(_id){
-  //   return this.http
-  //   .get(`http://localhost:3000/users/images/${_id}`)
-  //   .pipe(map(res => res));
-  // }
-
+  // add to cart
   addToCart(product) {
     localStorage.setItem("products", JSON.stringify(product));
   }
 
+  // get products in cart
   getProductsInCart() {
     var result = JSON.parse(localStorage.getItem("products"));
-    console.log(result);
     if (result == null) {
       var nullArray = [];
-      console.log(nullArray);
       return nullArray;
     }
 
@@ -97,15 +76,12 @@ export class ProductService {
   removeFromCart(product) {
     var cart = localStorage.getItem("products");
     var jsonObj = eval(cart);
-    console.log(jsonObj);
 
     jsonObj.forEach(function(result, index) {
       if (result._id == product._id) {
         jsonObj.splice(index, 1);
       }
     });
-
-    //var newList = jsonObj.splice(p => p._id == product._id);
     localStorage.setItem("products", JSON.stringify(jsonObj));
   }
 
@@ -116,18 +92,4 @@ export class ProductService {
       return false;
     }
   }
-
-  // view product
 }
-
-// interface Product {
-//   _id: string;
-//   name: string;
-//   description: string;
-//   price: number;
-//   image: string;
-// }
-
-// interface ProductResponse {
-//   products: Product[];
-// }
