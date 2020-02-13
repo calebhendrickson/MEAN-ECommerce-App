@@ -82,6 +82,20 @@ router.post("/authenticate", (req, res, next) => {
   });
 });
 
+router.put("/reset/:_id", (req, res, next) => {
+  // generate random key
+  // get the user by id
+  // set that key as the user's password
+  // send email to that user using mailgun containing the key
+  // also within the email tell the user to login using that key
+  // and that they can change the password from the profile page
+});
+
+router.put("/changepassword:_id", (req, res, next) => {
+  // get user by id
+  // update the password field
+});
+
 // Profile
 router.get(
   "/profile",

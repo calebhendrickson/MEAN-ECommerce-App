@@ -27,6 +27,20 @@ module.exports.getAllProducts = function(callback) {
   Product.find(callback);
 };
 
+module.exports.getAllProductsFiltered(filter) = function(callback) {
+  if (filter == "priceAsc") {
+    Product.find({}).sort({ price: 1 }, callback);
+  } else if (filter == "priceDesc") {
+    Product.find({}).sort({ price: -1 }, callback);
+  } else if (filter == "nameAsc") {
+    Product.find({}).sort({ name: 1 }, callback);
+  } else if (filter == "nameDesc") {
+    Product.find({}).sort({ name: -1 }, callback);
+  } else {
+    Product.find(callback);
+  }
+};
+
 module.exports.getProductById = function(_id, callback) {
   Product.findById(_id, callback);
 };

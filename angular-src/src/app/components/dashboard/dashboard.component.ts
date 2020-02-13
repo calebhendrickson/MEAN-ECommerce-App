@@ -12,9 +12,9 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {}
 
-  getAllProducts() {
-    this.productService.getProducts();
-  }
+  // getAllProducts() {
+  //   this.productService.getProducts();
+  // }
 
   onAddProduct() {
     this.router.navigate(["add"]);

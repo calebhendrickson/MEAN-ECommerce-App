@@ -11,6 +11,19 @@
   </div> -->
 </div>
 
+<div>
+  <form>
+    <input type="radio" name="sort" (click)="priceAscending()" />Price
+    Ascending<br />
+    <input type="radio" name="sort" (click)="priceDescending()" />Price
+    Descending<br />
+    <input type="radio" name="sort" (click)="nameAscending()" />Name
+    Ascending<br />
+    <input type="radio" name="sort" (click)="nameDescending()" />Name
+    Descending<br />
+  </form>
+</div>
+
 <section>
   <product-item
     *ngFor="let product of products"

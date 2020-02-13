@@ -145,7 +145,7 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"content\">\n  <!-- content here -->\n  <ul class=\"list-group\">\n    <product-listing\n      *ngFor=\"let product of products\"\n      [product]=\"product\"\n      (delete)=\"onDelete($event)\"\n    ></product-listing>\n  </ul>\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"content\">\n  <div>\n    <form>\n      <input type=\"radio\" name=\"sort\" (click)=\"priceAscending()\" />Price\n      Ascending<br />\n      <input type=\"radio\" name=\"sort\" (click)=\"priceDescending()\" />Price\n      Descending<br />\n      <input type=\"radio\" name=\"sort\" (click)=\"nameAscending()\" />Name\n      Ascending<br />\n      <input type=\"radio\" name=\"sort\" (click)=\"nameDescending()\" />Name\n      Descending<br />\n    </form>\n  </div>\n  <!-- content here -->\n  <ul class=\"list-group\">\n    <product-listing\n      *ngFor=\"let product of products\"\n      [product]=\"product\"\n      (delete)=\"onDelete($event)\"\n    ></product-listing>\n  </ul>\n</div>\n";
     /***/
   },
 
@@ -185,7 +185,7 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"jumbotron text-center\">\n  <h1>FlyBuy Store</h1>\n  <p class=\"lead\">\n    Welcome to our store. Have it your way\n  </p>\n  <h1></h1>\n  <p>In Stock:</p>\n  <!-- <div>\n    <a class=\"btn btn-primary\" [routerLink]=\"['/register']\">Register</a>\n    <a class=\"btn btn-dark\" [routerLink]=\"['/login']\">Login</a>\n  </div> -->\n</div>\n\n<section>\n  <product-item\n    *ngFor=\"let product of products\"\n    [product]=\"product\"\n  ></product-item>\n</section>\n";
+    __webpack_exports__["default"] = "<div class=\"jumbotron text-center\">\n  <h1>FlyBuy Store</h1>\n  <p class=\"lead\">\n    Welcome to our store. Have it your way\n  </p>\n  <h1></h1>\n  <p>In Stock:</p>\n  <!-- <div>\n    <a class=\"btn btn-primary\" [routerLink]=\"['/register']\">Register</a>\n    <a class=\"btn btn-dark\" [routerLink]=\"['/login']\">Login</a>\n  </div> -->\n</div>\n\n<div>\n  <form>\n    <input type=\"radio\" name=\"sort\" (click)=\"priceAscending()\" />Price\n    Ascending<br />\n    <input type=\"radio\" name=\"sort\" (click)=\"priceDescending()\" />Price\n    Descending<br />\n    <input type=\"radio\" name=\"sort\" (click)=\"nameAscending()\" />Name\n    Ascending<br />\n    <input type=\"radio\" name=\"sort\" (click)=\"nameDescending()\" />Name\n    Descending<br />\n  </form>\n</div>\n\n<section>\n  <product-item\n    *ngFor=\"let product of products\"\n    [product]=\"product\"\n  ></product-item>\n</section>\n";
     /***/
   },
 
@@ -1359,11 +1359,10 @@
         this.router = router;
       }
 
-      ngOnInit() {}
+      ngOnInit() {} // getAllProducts() {
+      //   this.productService.getProducts();
+      // }
 
-      getAllProducts() {
-        this.productService.getProducts();
-      }
 
       onAddProduct() {
         this.router.navigate(["add"]);
@@ -1688,19 +1687,45 @@
       }
 
       ngOnInit() {
-        this.productService.getProducts().subscribe(products => {
-          this.products = products;
-          this.products = this.products.products;
-          this.products = Object.values(this.products); // this.products.map(product => {
-          //   product.image = product.image;
-          // });
-        });
+        this.generateProducts(null);
       }
 
       onDelete(product) {
         this.productService.deleteProduct(product).subscribe(() => {
           this.ngOnInit();
         });
+      }
+
+      generateProducts(filter) {
+        this.productService.getProducts(filter).subscribe(products => {
+          this.products = products;
+          this.products = this.products.products;
+          this.products = Object.values(this.products);
+        });
+      }
+
+      noFilter() {
+        this.generateProducts(null);
+      }
+
+      priceAscending() {
+        this.filterVal = "priceAsc";
+        this.generateProducts(this.filterVal);
+      }
+
+      priceDescending() {
+        this.filterVal = "priceAsc";
+        this.generateProducts(this.filterVal);
+      }
+
+      nameAscending() {
+        this.filterVal = "nameAsc";
+        this.generateProducts(this.filterVal);
+      }
+
+      nameDescending() {
+        this.filterVal = "nameDesc";
+        this.generateProducts(this.filterVal);
       }
 
     };
@@ -1883,18 +1908,45 @@
     "./src/app/services/product.service.ts");
 
     let HomeComponent = class HomeComponent {
+      // category
       constructor(productService) {
         this.productService = productService;
       }
 
       ngOnInit() {
-        this.productService.getProducts().subscribe(products => {
+        this.generateProducts(null);
+      }
+
+      generateProducts(filter) {
+        this.productService.getProducts(filter).subscribe(products => {
           this.products = products;
           this.products = this.products.products;
-          this.products = Object.values(this.products); // this.products.map(product => {
-          //   product.image = product.image;
-          // });
+          this.products = Object.values(this.products);
         });
+      }
+
+      noFilter() {
+        this.generateProducts(null);
+      }
+
+      priceAscending() {
+        this.filterVal = "priceAsc";
+        this.generateProducts(this.filterVal);
+      }
+
+      priceDescending() {
+        this.filterVal = "priceAsc";
+        this.generateProducts(this.filterVal);
+      }
+
+      nameAscending() {
+        this.filterVal = "nameAsc";
+        this.generateProducts(this.filterVal);
+      }
+
+      nameDescending() {
+        this.filterVal = "nameDesc";
+        this.generateProducts(this.filterVal);
       }
 
     };
@@ -3091,8 +3143,12 @@
         this.currentMessage = this.currentCartCount.asObservable();
       }
 
-      getProducts() {
-        // the http get method returns an observable of http responses
+      getProducts(filter) {
+        const getOptions = {
+          params: {
+            filter: filter
+          }
+        }; // the http get method returns an observable of http responses
         // we need to unwrap the http response objects that the http
         // get method sends back because we still want the service to
         // return products not an http reposne object that the component
@@ -3101,7 +3157,8 @@
         // map method expects a function as its argument, this function
         // will receive an argument that will be one of the http response
         // objects in the observable
-        return this.http.get("products/dashboard").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(res => res));
+
+        return this.http.get("products/dashboard", getOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(res => res));
       } // add product
 
 

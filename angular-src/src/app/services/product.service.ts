@@ -14,7 +14,10 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  getProducts() {
+  getProducts(filter) {
+    const getOptions = {
+      params: {filter: filter}
+    };
     // the http get method returns an observable of http responses
     // we need to unwrap the http response objects that the http
     // get method sends back because we still want the service to
@@ -25,7 +28,7 @@ export class ProductService {
     // map method expects a function as its argument, this function
     // will receive an argument that will be one of the http response
     // objects in the observable
-    return this.http.get("products/dashboard").pipe(map(res => res));
+    return this.http.get("products/dashboard", getOptions).pipe(map(res => res));
   }
 
   // add product

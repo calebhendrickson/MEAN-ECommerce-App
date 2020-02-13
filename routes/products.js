@@ -90,7 +90,21 @@ router.post("/dashboard", upload.single("file"), (req, res, next) => {
 });
 
 // GET ALL PRODUCTS
-router.get("/dashboard", (req, res, next) => {
+router.get("/dashboard", options, (req, res, next) => {
+  console.log(options);
+  if (options.params.filter != null) {
+    Product.getAllProductsFiltered(options.params.filter, (err, products) => {
+      if (err) {
+        res.json({
+          success: false,
+          msg: `The value of ${options.params.filter} didnt work`
+        });
+      } else {
+        res.json({ products: products });
+      }
+    });
+  }
+
   Product.getAllProducts((err, products) => {
     if (err) {
       res.json({ success: false, msg: "failed to create product" });
