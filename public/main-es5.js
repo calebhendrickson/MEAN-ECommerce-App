@@ -125,7 +125,7 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h2 class=\"page-header\">Update Product</h2>\n<form (submit)=\"onProductUpdate()\">\n  <div class=\"form-group\">\n    <label>Name</label>\n    <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\" />\n  </div>\n  <div class=\"form-group\">\n    <label>Description</label>\n    <input\n      type=\"text\"\n      [(ngModel)]=\"description\"\n      name=\"description\"\n      class=\"form-control\"\n    />\n  </div>\n  <div class=\"form-group\">\n    <label>Price</label>\n    <input type=\"text\" [(ngModel)]=\"price\" name=\"price\" class=\"form-control\" />\n  </div>\n  <div class=\"form-group\">\n    <label>Image</label>\n    <input type=\"text\" [(ngModel)]=\"image\" name=\"image\" class=\"form-control\" />\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\" />\n</form>\n";
+    __webpack_exports__["default"] = "<h2 class=\"page-header\">Update Product</h2>\n<form (submit)=\"onUpdate()\">\n  <div class=\"form-group\">\n    <label>Name</label>\n    <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\" />\n  </div>\n  <div class=\"form-group\">\n    <label>Description</label>\n    <input\n      type=\"text\"\n      [(ngModel)]=\"description\"\n      name=\"description\"\n      class=\"form-control\"\n    />\n  </div>\n  <div class=\"form-group\">\n    <label>Price</label>\n    <input type=\"text\" [(ngModel)]=\"price\" name=\"price\" class=\"form-control\" />\n  </div>\n  <div class=\"form-group\">\n    <label>Image</label>\n    <input type=\"text\" [(ngModel)]=\"image\" name=\"image\" class=\"form-control\" />\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\" />\n</form>\n";
     /***/
   },
 
@@ -1575,20 +1575,24 @@
           this._id = params.get("_id");
         });
         this.productService.getProductById(this._id).subscribe(product => {
+          console.log(product);
           this.product = product;
-          this.onUpdate(this.product.product);
+          console.log(this.product);
+          this.populateFormValues(this.product.product);
         });
       }
 
-      onUpdate(product) {
+      populateFormValues(product) {
         this._id = product._id;
         this.name = product.name;
         this.description = product.description;
         this.price = product.price;
         this.image = product.image;
+        console.log(this.image);
+        console.log(product.image);
       }
 
-      onProductUpdate() {
+      onUpdate() {
         const product = {
           _id: this._id,
           name: this.name,
@@ -1596,6 +1600,7 @@
           price: this.price,
           image: this.image
         };
+        console.log(product);
         this.productService.updateProduct(product).subscribe(() => {
           this.router.navigate(["/dashboard"]);
         });
@@ -3006,29 +3011,14 @@
       }
 
       getAdmin() {
-        // make sure this line is working if error
         const localsession = JSON.parse(localStorage.getItem("user"));
 
         if (localsession == null) {
           return false;
         }
 
-        const result = localsession.type; //console.log(result);
-
-        return result; // this.getProfile().subscribe(
-        //   profile => {
-        //     this.user = (profile as any).user;
-        //   },
-        //   err => {
-        //     //console.log(err);
-        //     return false;
-        //   }
-        // );
-        // if ((this.user as any).type == true) {
-        //   return true;
-        // } else {
-        //   return false;
-        // }
+        const result = localsession.type;
+        return result;
       }
 
       logout() {
@@ -3117,57 +3107,39 @@
         // will receive an argument that will be one of the http response
         // objects in the observable
         return this.http.get("users/dashboard").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(res => res));
-      } // getImages() {
-      //   return this.http
-      //     .get("http://localhost:3000/users/images")
-      //     .pipe(map(res => res));
-      // }
+      } // add product
 
 
       addProduct(product) {
         return this.http.post("users/dashboard", product);
-      } // addImage(image){
-      //   const formData = new FormData();
-      //   formData.append('file', image);
-      //   return this.http.post("http://localhost:3000/users/images", formData);
-      // }
-      // delete product
+      } // delete product
 
 
       deleteProduct(product) {
         return this.http.delete("users/dashboard/".concat(product._id));
-      } // deleteImage(image){
-      //   return this.http.delete(
-      //     `http://localhost:3000/users/dashboard/${image._id}`
-      //   );
-      // }
-      // update product
+      } // update product
 
 
       updateProduct(product) {
         return this.http.put("dashboard/".concat(product._id), product);
-      }
+      } // retrieve by id
+
 
       getProductById(_id) {
         return this.http.get("users/dashboard/".concat(_id)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(res => res));
-      } // getImageById(_id){
-      //   return this.http
-      //   .get(`http://localhost:3000/users/images/${_id}`)
-      //   .pipe(map(res => res));
-      // }
+      } // add to cart
 
 
       addToCart(product) {
         localStorage.setItem("products", JSON.stringify(product));
-      }
+      } // get products in cart
+
 
       getProductsInCart() {
         var result = JSON.parse(localStorage.getItem("products"));
-        console.log(result);
 
         if (result == null) {
           var nullArray = [];
-          console.log(nullArray);
           return nullArray;
         }
 
@@ -3185,13 +3157,11 @@
       removeFromCart(product) {
         var cart = localStorage.getItem("products");
         var jsonObj = eval(cart);
-        console.log(jsonObj);
         jsonObj.forEach(function (result, index) {
           if (result._id == product._id) {
             jsonObj.splice(index, 1);
           }
-        }); //var newList = jsonObj.splice(p => p._id == product._id);
-
+        });
         localStorage.setItem("products", JSON.stringify(jsonObj));
       }
 
@@ -3211,17 +3181,7 @@
 
     ProductService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
       providedIn: "root"
-    })], ProductService); // interface Product {
-    //   _id: string;
-    //   name: string;
-    //   description: string;
-    //   price: number;
-    //   image: string;
-    // }
-    // interface ProductResponse {
-    //   products: Product[];
-    // }
-
+    })], ProductService);
     /***/
   },
 
