@@ -3121,7 +3121,7 @@
 
 
       updateProduct(product) {
-        return this.http.put("dashboard/".concat(product._id), product);
+        return this.http.put("users/dashboard/".concat(product._id), product);
       } // retrieve by id
 
 

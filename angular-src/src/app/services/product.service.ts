@@ -33,7 +33,6 @@ export class ProductService {
     return this.http.post("users/dashboard", product);
   }
 
-
   // delete product
   deleteProduct(product) {
     return this.http.delete(`users/dashboard/${product._id}`);
@@ -41,7 +40,7 @@ export class ProductService {
 
   // update product
   updateProduct(product) {
-    return this.http.put(`dashboard/${product._id}`, product);
+    return this.http.put(`users/dashboard/${product._id}`, product);
   }
 
   // retrieve by id

@@ -1931,7 +1931,7 @@ let ProductService = class ProductService {
     }
     // update product
     updateProduct(product) {
-        return this.http.put(`dashboard/${product._id}`, product);
+        return this.http.put(`users/dashboard/${product._id}`, product);
     }
     // retrieve by id
     getProductById(_id) {
