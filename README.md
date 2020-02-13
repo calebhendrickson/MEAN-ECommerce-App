@@ -115,6 +115,10 @@ Future Features:
   
   Email confirmation upon registration or purchase
   
+  Password retrieval using email
+  
+  Verification of email
+  
   Multi image product listings
   
   Better styling
