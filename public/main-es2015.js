@@ -887,9 +887,7 @@ let UpdateProductFormComponent = class UpdateProductFormComponent {
             this._id = params.get("_id");
         });
         this.productService.getProductById(this._id).subscribe(product => {
-            console.log(product);
             this.product = product;
-            console.log(this.product);
             this.populateFormValues(this.product.product);
         });
     }
@@ -899,8 +897,6 @@ let UpdateProductFormComponent = class UpdateProductFormComponent {
         this.description = product.description;
         this.price = product.price;
         this.image = product.image;
-        console.log(this.image);
-        console.log(product.image);
     }
     onUpdate() {
         const product = {
@@ -910,7 +906,6 @@ let UpdateProductFormComponent = class UpdateProductFormComponent {
             price: this.price,
             image: this.image
         };
-        console.log(product);
         this.productService.updateProduct(product).subscribe(() => {
             this.router.navigate(["/dashboard"]);
         });
@@ -1919,23 +1914,23 @@ let ProductService = class ProductService {
         // map method expects a function as its argument, this function
         // will receive an argument that will be one of the http response
         // objects in the observable
-        return this.http.get("users/dashboard").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(res => res));
+        return this.http.get("products/dashboard").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(res => res));
     }
     // add product
     addProduct(product) {
-        return this.http.post("users/dashboard", product);
+        return this.http.post("products/dashboard", product);
     }
     // delete product
     deleteProduct(product) {
-        return this.http.delete(`users/dashboard/${product._id}`);
+        return this.http.delete(`products/dashboard/${product._id}`);
     }
     // update product
     updateProduct(product) {
-        return this.http.put(`users/dashboard/${product._id}`, product);
+        return this.http.put(`products/dashboard/${product._id}`, product);
     }
     // retrieve by id
     getProductById(_id) {
-        return this.http.get(`users/dashboard/${_id}`).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(res => res));
+        return this.http.get(`products/dashboard/${_id}`).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(res => res));
     }
     // add to cart
     addToCart(product) {

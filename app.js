@@ -26,6 +26,7 @@ const app = express();
 // setting up server-side routes
 // TODO create separate routes for users and products
 const users = require("./routes/users");
+const products = require("./routes/products");
 
 const port = process.env.PORT || 8080;
 
@@ -37,6 +38,8 @@ app.use(cors());
 // set static folder
 app.use(express.static(path.join(__dirname, "public")));
 
+// only used during local deployment
+// contains the image files
 app.use("/uploads", express.static("uploads"));
 
 // parses incoming request bodies
@@ -49,6 +52,7 @@ require("./config/passport")(passport);
 
 //  TODO create separate routes for users and products
 app.use("/users", users);
+app.use("/products", products);
 
 app.get("/", (req, res) => {
   res.send("Invalid Endpoint");

@@ -25,27 +25,27 @@ export class ProductService {
     // map method expects a function as its argument, this function
     // will receive an argument that will be one of the http response
     // objects in the observable
-    return this.http.get("users/dashboard").pipe(map(res => res));
+    return this.http.get("products/dashboard").pipe(map(res => res));
   }
 
   // add product
   addProduct(product) {
-    return this.http.post("users/dashboard", product);
+    return this.http.post("products/dashboard", product);
   }
 
   // delete product
   deleteProduct(product) {
-    return this.http.delete(`users/dashboard/${product._id}`);
+    return this.http.delete(`products/dashboard/${product._id}`);
   }
 
   // update product
   updateProduct(product) {
-    return this.http.put(`users/dashboard/${product._id}`, product);
+    return this.http.put(`products/dashboard/${product._id}`, product);
   }
 
   // retrieve by id
   getProductById(_id) {
-    return this.http.get(`users/dashboard/${_id}`).pipe(map(res => res));
+    return this.http.get(`products/dashboard/${_id}`).pipe(map(res => res));
   }
 
   // add to cart
