@@ -20,10 +20,10 @@ import { AuthGuard } from "./guards/auth.guard";
 import { AdminGuard } from "./guards/admin.guard";
 import { AddProductFormComponent } from "./components/dashboard/product-forms/add-product-form/add-product-form.component";
 import { UpdateProductFormComponent } from "./components/dashboard/product-forms/update-product-form/update-product-form.component";
-import { ProductComponent } from "./components/product/product/product.component";
-import { ProductListComponent } from "./components/product/product-list.component";
-import { UserViewProductComponent } from "./components/product/user-view-product/user-view-product.component";
-import { UserViewDetailsComponent } from "./components/product/user-view-details/user-view-details.component";
+import { ProductListingComponent } from "./components/dashboard/product-list/product-listing/product-listing.component";
+import { ProductListComponent } from "./components/dashboard/product-list/product-list.component";
+import { ProductItemComponent } from "./components/home/product-item/product-item.component";
+import { ProductDetailsComponent } from "./components/home/product-item/product-details/product-details.component";
 import { CartComponent } from "./components/cart/cart.component";
 
 const appRoutes: Routes = [
@@ -38,7 +38,7 @@ const appRoutes: Routes = [
   { path: "add", component: AddProductFormComponent },
   { path: "cart", component: CartComponent },
   { path: "update/:_id", component: UpdateProductFormComponent },
-  { path: "view/:_id", component: UserViewDetailsComponent },
+  { path: "view/:_id", component: ProductDetailsComponent },
   { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] }
 ];
 
@@ -53,10 +53,10 @@ const appRoutes: Routes = [
     ProfileComponent,
     AddProductFormComponent,
     UpdateProductFormComponent,
-    ProductComponent,
+    ProductListingComponent,
     ProductListComponent,
-    UserViewProductComponent,
-    UserViewDetailsComponent,
+    ProductItemComponent,
+    ProductDetailsComponent,
     CartComponent
   ],
   imports: [

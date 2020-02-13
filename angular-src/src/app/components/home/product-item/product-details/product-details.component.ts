@@ -1,13 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, ParamMap } from "@angular/router";
-import { ProductService } from "../../../services/product.service";
+import { ProductService } from "../../../../services/product.service";
 
 @Component({
-  selector: "app-user-view-details",
-  templateUrl: "./user-view-details.component.html",
-  styleUrls: ["./user-view-details.component.css"]
+  selector: "product-details",
+  templateUrl: "./product-details.component.html",
+  styleUrls: ["./product-details.component.css"]
 })
-export class UserViewDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit {
   //apiUrl: string = "http://localhost:3000/";
   //this.image = `https://s3-us-east-2.amazonaws.com/flybuy-bulldog/${product.image}`;
   name: String;

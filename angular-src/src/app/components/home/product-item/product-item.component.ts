@@ -3,11 +3,11 @@ import { Router } from "@angular/router";
 import { ProductService } from "../../../services/product.service";
 
 @Component({
-  selector: "app-user-view-product",
-  templateUrl: "./user-view-product.component.html",
-  styleUrls: ["./user-view-product.component.css"]
+  selector: "product-item",
+  templateUrl: "./product-item.component.html",
+  styleUrls: ["./product-item.component.css"]
 })
-export class UserViewProductComponent implements OnInit {
+export class ProductItemComponent implements OnInit {
   productsInCart;
   cartItemCount;
   button = false;

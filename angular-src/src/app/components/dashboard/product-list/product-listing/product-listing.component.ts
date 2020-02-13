@@ -1,13 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Router } from "@angular/router";
-import { ProductService } from "../../../services/product.service";
+import { ProductService } from "../../../../services/product.service";
 
 @Component({
-  selector: "product-item",
-  templateUrl: "./product.component.html",
-  styleUrls: ["./product.component.css"]
+  selector: "product-listing",
+  templateUrl: "./product-listing.component.html",
+  styleUrls: ["./product-listing.component.css"]
 })
-export class ProductComponent implements OnInit {
+export class ProductListingComponent implements OnInit {
   // TODO understand these
   @Input() product;
   @Output() delete = new EventEmitter();
