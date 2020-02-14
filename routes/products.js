@@ -90,9 +90,9 @@ router.post("/dashboard", upload.single("file"), (req, res, next) => {
 });
 
 // GET ALL PRODUCTS
-router.get("/dashboard", options, (req, res, next) => {
-  console.log(options);
-  if (options.params.filter != null) {
+router.get("/dashboard", (req, res, next) => {
+  console.log(req.body.options);
+  if (req.body.options.filter != null) {
     Product.getAllProductsFiltered(options.params.filter, (err, products) => {
       if (err) {
         res.json({
