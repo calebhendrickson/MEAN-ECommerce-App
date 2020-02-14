@@ -13,15 +13,13 @@ export class HomeComponent implements OnInit {
   filterVal;
   // category
 
-  constructor(
-    private productService: ProductService
-  ) {}
+  constructor(private productService: ProductService) {}
 
   ngOnInit() {
     this.generateProducts(null);
   }
 
-  generateProducts(filter){
+  generateProducts(filter) {
     this.productService.getProducts(filter).subscribe(products => {
       this.products = products;
       this.products = this.products.products;
@@ -29,26 +27,26 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  noFilter(){
+  noFilter() {
     this.generateProducts(null);
   }
 
-  priceAscending(){
+  priceAscending() {
     this.filterVal = "priceAsc";
     this.generateProducts(this.filterVal);
   }
 
-  priceDescending(){
-    this.filterVal = "priceAsc";
+  priceDescending() {
+    this.filterVal = "priceDesc";
     this.generateProducts(this.filterVal);
   }
 
-  nameAscending(){
+  nameAscending() {
     this.filterVal = "nameAsc";
     this.generateProducts(this.filterVal);
   }
 
-  nameDescending(){
+  nameDescending() {
     this.filterVal = "nameDesc";
     this.generateProducts(this.filterVal);
   }

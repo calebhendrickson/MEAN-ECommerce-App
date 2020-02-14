@@ -12,7 +12,7 @@ const ProductSchema = mongoose.Schema({
     required: true
   },
   price: {
-    type: String,
+    type: Number,
     required: true
   },
   image: {
@@ -29,13 +29,21 @@ module.exports.getAllProducts = function(callback) {
 
 module.exports.getAllProductsFiltered = function(filter, callback) {
   if (filter == "priceAsc") {
-    Product.find({}).sort({ price: 1 }, callback);
+    Product.find({})
+      .sort({ price: 1 })
+      .exec(callback);
   } else if (filter == "priceDesc") {
-    Product.find({}).sort({ price: -1 }, callback);
+    Product.find({})
+      .sort({ price: -1 })
+      .exec(callback);
   } else if (filter == "nameAsc") {
-    Product.find({}).sort({ name: 1 }, callback);
+    Product.find({})
+      .sort({ name: 1 })
+      .exec(callback);
   } else if (filter == "nameDesc") {
-    Product.find({}).sort({ name: -1 }, callback);
+    Product.find({})
+      .sort({ name: -1 })
+      .exec(callback);
   } else {
     Product.find(callback);
   }

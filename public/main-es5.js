@@ -1935,7 +1935,7 @@
       }
 
       priceDescending() {
-        this.filterVal = "priceAsc";
+        this.filterVal = "priceDesc";
         this.generateProducts(this.filterVal);
       }
 

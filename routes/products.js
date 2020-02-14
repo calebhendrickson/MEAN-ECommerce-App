@@ -7,8 +7,11 @@ const multerS3 = require("multer-s3");
 const config = require("../config/database");
 const Product = require("../models/product");
 
+// Production
 var URL = "https://s3-us-east-2.amazonaws.com/flybuy-bulldog/";
 //https://flybuy-bulldog.s3.us-east-2.amazonaws.com/
+// Development
+//var URL = "https://localhost:3000/";
 
 // TODO make these environment variables
 aws.config.update({
@@ -91,27 +94,27 @@ router.post("/dashboard", upload.single("file"), (req, res, next) => {
 
 // GET ALL PRODUCTS
 router.get("/dashboard", (req, res, next) => {
-  console.log(req.body.options);
-  if (req.body.options.filter != null) {
-    Product.getAllProductsFiltered(options.params.filter, (err, products) => {
+  console.log(req.query.filter);
+  if (req.query.filter != null) {
+    Product.getAllProductsFiltered(req.query.filter, (err, products) => {
       if (err) {
         res.json({
           success: false,
-          msg: `The value of ${options.params.filter} didnt work`
+          msg: `The value of ${req.query.filter} didnt work`
         });
       } else {
         res.json({ products: products });
       }
     });
+  } else {
+    Product.getAllProducts((err, products) => {
+      if (err) {
+        res.json({ success: false, msg: "failed to create product" });
+      } else {
+        res.json({ products: products });
+      }
+    });
   }
-
-  Product.getAllProducts((err, products) => {
-    if (err) {
-      res.json({ success: false, msg: "failed to create product" });
-    } else {
-      res.json({ products: products });
-    }
-  });
 });
 
 // GET PRODUCT BY ID

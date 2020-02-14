@@ -1131,7 +1131,7 @@ let HomeComponent = class HomeComponent {
         this.generateProducts(this.filterVal);
     }
     priceDescending() {
-        this.filterVal = "priceAsc";
+        this.filterVal = "priceDesc";
         this.generateProducts(this.filterVal);
     }
     nameAscending() {
