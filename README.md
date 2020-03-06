@@ -101,35 +101,35 @@ Features of the Application:
         
 Future Features:
 
-  Product list sort (Home page)
+ * Product list sort (Home page)
   
-  Prouct list search (Home page)
+ * Prouct list search (Home page)
   
-  Simulated purchase ( Cart page) - no real money
+ * Simulated purchase ( Cart page) - no real money
   
-  Eventually create a real payment system (Cart page)
+ * Eventually create a real payment system (Cart page)
   
-  Order History
+ * Order History
   
-  Order tracking
+ * Order tracking
   
-  Email confirmation upon registration or purchase
+ * Email confirmation upon registration or purchase
   
-  Password retrieval using email
+ * Password retrieval using email
   
-  Verification of email
+ * Verification of email
   
-  Multi image product listings
+ * Multi image product listings
   
-  Better styling
+ * Better styling
   
-  Fix UI so that it works on mobile
+ * Fix UI so that it works on mobile
   
-  Facebook, Google+, etc. login
+ * Facebook, Google+, etc. login
   
-  Increased Security
+ * Increased Security
   
-  & many more to be determined
+ * & many more to be determined
   
       
-Future plans also include refinement to the project and better code documentation
+Future plans also include refinement to the project code and better code commenting/documentation
