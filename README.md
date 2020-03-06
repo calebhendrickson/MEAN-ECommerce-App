@@ -1,10 +1,11 @@
 # MEAN Stack E-Commerce shopping application version 1.0 
 Users can create an account, browse products and add/remove them from/to their shopping cart. 
 
-Unique functionality: Administrator accounts can upload, delete, and create products from within the application.
+Administrator accounts can upload, delete, and create products from within the application.
 
 Payment functionality not implemented.
 
+**How to run this application**
 You can run this application on your own by downloading the source code and then opening a node.js terminal and running the npm start command in the root folder to start the server. To the start the client, install the angular cli and open another terminal and navigate to the angular-src folder and run ng serve. You will also have to open a terminal to run mongodb locally.
 
 
@@ -45,39 +46,39 @@ This E-Commerce web application was completed using the MEAN stack. Some other i
     
       Home
       
-        - Product list
+        * Product list
         
-        - Each product card shows the product image, price, name
+        * Each product card shows the product image, price, name
         
-        - Each card also contains an Add/Remove from cart button
+        * Each card also contains an Add/Remove from cart button
         
-        - Each card also contains a view more button to view more product details
+        * Each card also contains a view more button to view more product details
         
       Registration
       
-        - Registration form
+        * Registration form
         
       Login
       
-        - Login form
+        * Login form
         
       Profile
       
-        - Displays account information such as name, username, and email
+        * Displays account information such as name, username, and email
         
       Product Details
       
-        - Displays product image, name, description, and price
+        * Displays product image, name, description, and price
         
-        - Add/Remove from cart button
+        * Add/Remove from cart button
         
       Cart
       
-        - Allows users to view all of the items that they have slected for their cart
+        * Allows users to view all of the items that they have slected for their cart
         
-        - Allows users to increase/decrease the quantity of the items in their cart
+        * Allows users to increase/decrease the quantity of the items in their cart
         
-        - Remove product button to remove that item from the cart completely
+        * Remove product button to remove that item from the cart completely
         
         
   
@@ -99,7 +100,10 @@ This E-Commerce web application was completed using the MEAN stack. Some other i
       
         - Edit product form
         
-        
+
+# Deployment
+This application was deployed using Heroku's cloud web hosting, mLab's cloud database service, and AWS S3 bucket cloud file storage for image file storage
+
 # Future Features:
 
  * Product list sort (Home page)
