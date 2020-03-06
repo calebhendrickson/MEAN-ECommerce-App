@@ -1,4 +1,5 @@
-E-Commerce shopping application version 1.0 where users can create an account, browse products and add/remove them from/to their shopping cart. 
+# MEAN Stack E-Commerce shopping application version 1.0 
+Users can create an account, browse products and add/remove them from/to their shopping cart. 
 
 Unique functionality: Administrator accounts can upload, delete, and create products from within the application.
 
@@ -9,34 +10,34 @@ You can run this application on your own by downloading the source code and then
 
 This E-Commerce web application was completed using the MEAN stack. Some other important modules/packages include: 
 
-    - bcrypt for password hashing
+ * bcrypt for password hashing
   
-    - multer for uploading images
+ * multer for uploading images
   
-    - passport for json web token user authentication
+ * passport for json web token user authentication
   
-    - mongoose for persisting to mongodb
+ * mongoose for persisting to mongodb
   
-    - cors to allow cross origin resource sharing
+ * cors to allow cross origin resource sharing
     
-    - mLab for cloud database host
+ * mLab for cloud database host
     
-    - Heroku for cloud web host
+ * Heroku for cloud web host
     
-    - AWS s3 for cloud file storage (for the images)
+ * AWS s3 for cloud file storage (for the images)
   
 
-Features of the Application:
+# Features of the Application:
 
   Navbar
   
-    - Contains links to the different pages within the application 
+ * Contains links to the different pages within the application 
   
-    - Navbar links differ depending on if the user is an administrator or not an administrator of if the user is logged in or not
+ * Navbar links differ depending on if the user is an administrator or not an administrator of if the user is logged in or not
     
-    - The adminstrator account functionality is a superset of user account functionality
+ * The adminstrator account functionality is a superset of user account functionality
     
-    - Contains a counter next to the cart link to let users know how many items are in their cart instantly
+ * Contains a counter next to the cart link to let users know how many items are in their cart instantly
     
   User Functionality:
   
@@ -99,7 +100,7 @@ Features of the Application:
         - Edit product form
         
         
-Future Features:
+# Future Features:
 
  * Product list sort (Home page)
   
