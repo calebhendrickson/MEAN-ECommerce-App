@@ -86,19 +86,19 @@ This E-Commerce web application was completed using the MEAN stack. Some other i
   
       Dashboard
       
-        - Hub for navigating to editing, creating, and deleting products
+        * Hub for navigating to editing, creating, and deleting products
         
-        - Contains an add product button and an edit product button to route the user to the appropriate form
+        * Contains an add product button and an edit product button to route the user to the appropriate form
         
-        - Can delete products and their data from the database with the click of the remove product button
+        * Can delete products and their data from the database with the click of the remove product button
         
       Add Product
       
-        - Add product form
+        * Add product form
         
       Edit Product
       
-        - Edit product form
+        * Edit product form
         
 
 # Deployment
