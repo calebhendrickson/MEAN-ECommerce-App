@@ -5,7 +5,7 @@ Administrator accounts can upload, delete, and create products from within the a
 
 Payment functionality not implemented.
 
-**How to run this application**
+**How to run this application:**
 You can run this application on your own by downloading the source code and then opening a node.js terminal and running the npm start command in the root folder to start the server. To the start the client, install the angular cli and open another terminal and navigate to the angular-src folder and run ng serve. You will also have to open a terminal to run mongodb locally.
 
 
