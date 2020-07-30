@@ -95,8 +95,15 @@ router.post("/dashboard", upload.single("file"), (req, res, next) => {
 // GET ALL PRODUCTS
 router.get("/dashboard", (req, res, next) => {
   console.log(req.query.filter);
+  console.log(req.query.pagenumber);
+  var options = {
+    filter: req.query.filter,
+    pagenumber: req.query.pagenumber
+  }
+
+  console.log(options);
   if (req.query.filter != null) {
-    Product.getAllProductsFiltered(req.query.filter, (err, products) => {
+    Product.getAllProductsFiltered(options, (err, products) => {
       if (err) {
         res.json({
           success: false,
@@ -107,7 +114,7 @@ router.get("/dashboard", (req, res, next) => {
       }
     });
   } else {
-    Product.getAllProducts((err, products) => {
+    Product.getAllProducts(req.query.pagenumber, (err, products) => {
       if (err) {
         res.json({ success: false, msg: "failed to create product" });
       } else {

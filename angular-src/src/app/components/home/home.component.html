@@ -13,6 +13,9 @@
 
 <div>
   <form>
+    <input type="radio" name="sort" (click)="noFilter()" />Recently Added
+    (Default)
+    <br />
     <input type="radio" name="sort" (click)="priceAscending()" />Price
     Ascending<br />
     <input type="radio" name="sort" (click)="priceDescending()" />Price
@@ -30,3 +33,14 @@
     [product]="product"
   ></product-item>
 </section>
+
+<br />
+
+<!-- <div>
+  <a *ngIf="!isLast()" (click)="nextPage()"> Next Page </a>
+  <a *ngIf="!isFirst()" (click)="previousPage()"> Previous Page </a>
+</div> -->
+
+<footer>
+  <p>©FlyBuy & Caleb Hendrickson</p>
+</footer>

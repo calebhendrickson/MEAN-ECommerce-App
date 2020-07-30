@@ -16,7 +16,7 @@ mongoose.connection.on("connected", () => {
 });
 
 // On error
-mongoose.connection.on("error", err => {
+mongoose.connection.on("error", (err) => {
   console.log("database error " + err);
 });
 
@@ -34,12 +34,13 @@ const port = process.env.PORT || 8080;
 // different domain name
 app.use(cors());
 
-// place to put our client side files (our enitre angular 2 app)
+// place to put our client side files (our enitre angular 8 app)
 // set static folder
 app.use(express.static(path.join(__dirname, "public")));
 
 // only used during local deployment
 // contains the image files
+// TODO: I don't think I need this anymore even for local deployment because I'm storing these with AWS s3 storage
 app.use("/uploads", express.static("uploads"));
 
 // parses incoming request bodies

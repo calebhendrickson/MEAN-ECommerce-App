@@ -23,26 +23,41 @@ const ProductSchema = mongoose.Schema({
 
 const Product = (module.exports = mongoose.model("Product", ProductSchema));
 
-module.exports.getAllProducts = function(callback) {
-  Product.find(callback);
+module.exports.getProductCount = function(callback) {
+  Product.count(callback);
+}
+
+module.exports.getAllProducts = function(pagenumber, callback) {
+  var skipValue = (options.pagenumber - 1) * 20;
+  Product.find({}).skip( skipValue )
+  .limit(20).exec(callback);
 };
 
-module.exports.getAllProductsFiltered = function(filter, callback) {
-  if (filter == "priceAsc") {
+module.exports.getAllProductsFiltered = function(options, callback) {
+  var skipValue = (options.pagenumber - 1) * 20;
+  if (options.filter == "priceAsc") {
     Product.find({})
       .sort({ price: 1 })
+      .skip( skipValue )
+      .limit(20)
       .exec(callback);
-  } else if (filter == "priceDesc") {
+  } else if (options.filter == "priceDesc") {
     Product.find({})
       .sort({ price: -1 })
+      .skip( skipValue )
+      .limit(20)
       .exec(callback);
-  } else if (filter == "nameAsc") {
+  } else if (options.filter == "nameAsc") {
     Product.find({})
       .sort({ name: 1 })
+      .skip( skipValue )
+      .limit(20)
       .exec(callback);
-  } else if (filter == "nameDesc") {
+  } else if (options.filter == "nameDesc") {
     Product.find({})
       .sort({ name: -1 })
+      .skip( skipValue )
+      .limit(20)
       .exec(callback);
   } else {
     Product.find(callback);

@@ -338,7 +338,7 @@ if (content.locals) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\chendric\Desktop\BULLDOG_STACK\angular-src\src\styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! C:\Users\chendric\Desktop\RESUME PROJECTS\BULLDOG_STACK\angular-src\src\styles.css */"./src/styles.css");
 
 
 /***/ })

@@ -14,9 +14,10 @@ export class ProductService {
 
   constructor(private http: HttpClient) {}
 
-  getProducts(filter) {
+  getProducts(filter, pagenumber) {
     const getOptions = {
-      params: {filter: filter}
+      params: {filter: filter,
+      pagenumber: pagenumber }
     };
     // the http get method returns an observable of http responses
     // we need to unwrap the http response objects that the http

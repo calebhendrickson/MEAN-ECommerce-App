@@ -25,7 +25,9 @@ export class ProductListComponent implements OnInit {
   }
 
   generateProducts(filter) {
-    this.productService.getProducts(filter).subscribe(products => {
+    // page number value is currently hardcoded to one because I dont want
+    // to deal with it rn... sorry future me
+    this.productService.getProducts(filter, 1).subscribe(products => {
       this.products = products;
       this.products = this.products.products;
       this.products = Object.values(this.products);

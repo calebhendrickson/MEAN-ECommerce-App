@@ -1,7 +1,19 @@
 <h2 class="page-header">Product Details</h2>
 <div>
   <div>
-    <img class="images" src="{{ image }}" />
+    <!--<img class="images" src="{{ image }}" />-->
+    <td
+      style="
+        width: 200px;
+        height: 200px;
+        vertical-align: middle;
+        text-align: center;
+      "
+    >
+      <div class="product-grid__img-wrapper">
+        <img class="images" src="{{ image }}" height="auto" width="100px" />
+      </div>
+    </td>
     <div>
       <div>
         <h4>{{ name }}</h4>

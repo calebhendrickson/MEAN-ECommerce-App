@@ -65,7 +65,7 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h1></h1>\n<h1>Your Cart</h1>\n<ul class=\"list-group\">\n  <table>\n    <thead>\n      <tr *ngIf=\"checkCart()\">\n        <th></th>\n        <th\n          style=\"vertical-align: middle;\n          text-align: center;\"\n        >\n          Name\n        </th>\n        <th\n          style=\"vertical-align: middle;\n          text-align: center;\"\n        >\n          Description\n        </th>\n        <th\n          style=\"vertical-align: middle;\n          text-align: center;\"\n        >\n          Price\n        </th>\n        <th\n          style=\"vertical-align: middle;\n          text-align: center;\"\n        >\n          Quantity\n        </th>\n        <th\n          style=\"vertical-align: middle;\n          text-align: center;\"\n        >\n          Change Quantity\n        </th>\n        <th\n          style=\"vertical-align: middle;\n          text-align: center;\"\n        >\n          Cost\n        </th>\n        <th\n          style=\"vertical-align: middle;\n          text-align: center;\"\n        >\n          Remove Item\n        </th>\n      </tr>\n    </thead>\n    <tr *ngFor=\"let product of productsInCart; let q = index\">\n      <td\n        style=\"width:200px; height:200px; vertical-align: middle;\n        text-align: center;\"\n      >\n        <div class=\"product-grid__img-wrapper\">\n          <img\n            class=\"images\"\n            src=\"{{ product.image }}\"\n            height=\"auto\"\n            width=\"100px\"\n          />\n        </div>\n      </td>\n      <td\n        style=\"width:200px; height:200px; vertical-align: middle;\n        text-align: center;\"\n      >\n        {{ product.name }}\n      </td>\n      <td\n        style=\"width:200px; height:200px; vertical-align: middle;\n        text-align: center;\"\n      >\n        {{ product.description }}\n      </td>\n      <td\n        style=\"width:200px; height:200px; vertical-align: middle;\n        text-align: center;\"\n      >\n        {{ product.price }}\n      </td>\n      <td\n        style=\"width:200px; height:200px; vertical-align: middle;\n        text-align: center;\"\n      >\n        {{ product.Quantity }}\n      </td>\n      <td\n        style=\"width:100px; height:100px; vertical-align: middle;\n        text-align: center;\"\n      >\n        <button (click)=\"onAddQuantity(product)\" class=\"btn btn-success\">\n          +\n        </button>\n        <input\n          type=\"text\"\n          [ngModel]=\"product.Quantity\"\n          (ngModelChange)=\"product.Quantity = $event\"\n          class=\"form-control\"\n        />\n        <button\n          *ngIf=\"getQuantity(product.Quantity)\"\n          (click)=\"onRemoveQuantity(product)\"\n          class=\"btn btn-danger\"\n        >\n          -\n        </button>\n      </td>\n      <td\n        style=\"width:100px; height:100px; vertical-align: middle;\n        text-align: center;\"\n      >\n        {{ product.price * product.Quantity }}\n      </td>\n      <td\n        style=\"width:100px; height:100px; vertical-align: middle;\n        text-align: center;\"\n      >\n        <button (click)=\"onRemoveProduct(product)\">Remove</button>\n      </td>\n    </tr>\n  </table>\n</ul>\n\n<div *ngIf=\"checkCart()\" style=\"vertical-align: middle; text-align: right;\">\n  <h2>Total Comes to ${{ allTotal }}</h2>\n  <div style=\"vertical-align: middle; text-align: right; padding-right: 100px\">\n    <button>Checkout</button>\n  </div>\n</div>\n";
+    __webpack_exports__["default"] = "<h1></h1>\n<h1>Your Cart</h1>\n<ul class=\"list-group\">\n  <table>\n    <thead>\n      <tr *ngIf=\"checkCart()\">\n        <th></th>\n        <th style=\"vertical-align: middle; text-align: center;\">\n          Name\n        </th>\n        <th style=\"vertical-align: middle; text-align: center;\">\n          Description\n        </th>\n        <th style=\"vertical-align: middle; text-align: center;\">\n          Price\n        </th>\n        <th style=\"vertical-align: middle; text-align: center;\">\n          Quantity\n        </th>\n        <th style=\"vertical-align: middle; text-align: center;\">\n          Change Quantity\n        </th>\n        <th style=\"vertical-align: middle; text-align: center;\">\n          Cost\n        </th>\n        <th style=\"vertical-align: middle; text-align: center;\">\n          Remove Item\n        </th>\n      </tr>\n    </thead>\n    <tr *ngFor=\"let product of productsInCart; let q = index\">\n      <td\n        style=\"\n          width: 200px;\n          height: 200px;\n          vertical-align: middle;\n          text-align: center;\n        \"\n      >\n        <div class=\"product-grid__img-wrapper\">\n          <img\n            class=\"images\"\n            src=\"{{ product.image }}\"\n            height=\"auto\"\n            width=\"100px\"\n          />\n        </div>\n      </td>\n      <td\n        style=\"\n          width: 200px;\n          height: 200px;\n          vertical-align: middle;\n          text-align: center;\n        \"\n      >\n        {{ product.name }}\n      </td>\n      <td\n        style=\"\n          width: 200px;\n          height: 200px;\n          vertical-align: middle;\n          text-align: center;\n        \"\n      >\n        {{ product.description }}\n      </td>\n      <td\n        style=\"\n          width: 200px;\n          height: 200px;\n          vertical-align: middle;\n          text-align: center;\n        \"\n      >\n        {{ product.price }}\n      </td>\n      <td\n        style=\"\n          width: 200px;\n          height: 200px;\n          vertical-align: middle;\n          text-align: center;\n        \"\n      >\n        {{ product.Quantity }}\n      </td>\n      <td\n        style=\"\n          width: 100px;\n          height: 100px;\n          vertical-align: middle;\n          text-align: center;\n        \"\n      >\n        <button (click)=\"onAddQuantity(product)\" class=\"btn btn-success\">\n          +\n        </button>\n        <input\n          type=\"text\"\n          [ngModel]=\"product.Quantity\"\n          (ngModelChange)=\"product.Quantity = $event\"\n          class=\"form-control\"\n        />\n        <button\n          *ngIf=\"getQuantity(product.Quantity)\"\n          (click)=\"onRemoveQuantity(product)\"\n          class=\"btn btn-danger\"\n        >\n          -\n        </button>\n      </td>\n      <td\n        style=\"\n          width: 100px;\n          height: 100px;\n          vertical-align: middle;\n          text-align: center;\n        \"\n      >\n        {{ product.price * product.Quantity }}\n      </td>\n      <td\n        style=\"\n          width: 100px;\n          height: 100px;\n          vertical-align: middle;\n          text-align: center;\n        \"\n      >\n        <button (click)=\"onRemoveProduct(product)\">Remove</button>\n      </td>\n    </tr>\n  </table>\n</ul>\n\n<div *ngIf=\"checkCart()\" style=\"vertical-align: middle; text-align: right;\">\n  <h2>Total Comes to ${{ allTotal }}</h2>\n  <div style=\"vertical-align: middle; text-align: right; padding-right: 100px;\">\n    <button>Checkout</button>\n  </div>\n</div>\n";
     /***/
   },
 
@@ -85,7 +85,7 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h2 class=\"page-header\">Dashboard</h2>\n<p>Welcome to your dashboard... whatever that is</p>\n<button (click)=\"onAddProduct()\">Add Product</button>\n<product-list></product-list>\n\n<!-- single button to go to form to addproduct-->\n\n<!--buttons on every product to update(send you to update form) or delete-->\n";
+    __webpack_exports__["default"] = "<h2 class=\"page-header\">Dashboard</h2>\n<p>\n  Welcome to your dashboard... where you can manage the products for the store\n</p>\n<button (click)=\"onAddProduct()\">Add Product</button>\n<product-list></product-list>\n\n<!-- single button to go to form to addproduct-->\n\n<!--buttons on every product to update(send you to update form) or delete-->\n";
     /***/
   },
 
@@ -185,7 +185,7 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"jumbotron text-center\">\n  <h1>FlyBuy Store</h1>\n  <p class=\"lead\">\n    Welcome to our store. Have it your way\n  </p>\n  <h1></h1>\n  <p>In Stock:</p>\n  <!-- <div>\n    <a class=\"btn btn-primary\" [routerLink]=\"['/register']\">Register</a>\n    <a class=\"btn btn-dark\" [routerLink]=\"['/login']\">Login</a>\n  </div> -->\n</div>\n\n<div>\n  <form>\n    <input type=\"radio\" name=\"sort\" (click)=\"priceAscending()\" />Price\n    Ascending<br />\n    <input type=\"radio\" name=\"sort\" (click)=\"priceDescending()\" />Price\n    Descending<br />\n    <input type=\"radio\" name=\"sort\" (click)=\"nameAscending()\" />Name\n    Ascending<br />\n    <input type=\"radio\" name=\"sort\" (click)=\"nameDescending()\" />Name\n    Descending<br />\n  </form>\n</div>\n\n<section>\n  <product-item\n    *ngFor=\"let product of products\"\n    [product]=\"product\"\n  ></product-item>\n</section>\n";
+    __webpack_exports__["default"] = "<div class=\"jumbotron text-center\">\n  <h1>FlyBuy Store</h1>\n  <p class=\"lead\">\n    Welcome to our store. Have it your way\n  </p>\n  <h1></h1>\n  <p>In Stock:</p>\n  <!-- <div>\n    <a class=\"btn btn-primary\" [routerLink]=\"['/register']\">Register</a>\n    <a class=\"btn btn-dark\" [routerLink]=\"['/login']\">Login</a>\n  </div> -->\n</div>\n\n<div>\n  <form>\n    <input type=\"radio\" name=\"sort\" (click)=\"noFilter()\" />Recently Added\n    (Default)\n    <br />\n    <input type=\"radio\" name=\"sort\" (click)=\"priceAscending()\" />Price\n    Ascending<br />\n    <input type=\"radio\" name=\"sort\" (click)=\"priceDescending()\" />Price\n    Descending<br />\n    <input type=\"radio\" name=\"sort\" (click)=\"nameAscending()\" />Name\n    Ascending<br />\n    <input type=\"radio\" name=\"sort\" (click)=\"nameDescending()\" />Name\n    Descending<br />\n  </form>\n</div>\n\n<section>\n  <product-item\n    *ngFor=\"let product of products\"\n    [product]=\"product\"\n  ></product-item>\n</section>\n\n<br />\n\n<!-- <div>\n  <a *ngIf=\"!isLast()\" (click)=\"nextPage()\"> Next Page </a>\n  <a *ngIf=\"!isFirst()\" (click)=\"previousPage()\"> Previous Page </a>\n</div> -->\n\n<footer>\n  <p>©FlyBuy & Caleb Hendrickson</p>\n</footer>\n";
     /***/
   },
 
@@ -205,7 +205,7 @@
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<h2 class=\"page-header\">Product Details</h2>\n<div>\n  <div>\n    <img class=\"images\" src=\"{{ image }}\" />\n    <div>\n      <div>\n        <h4>{{ name }}</h4>\n      </div>\n      <div>\n        {{ price }}\n      </div>\n    </div>\n    <div>\n      <button *ngIf=\"!button\" (click)=\"onAddToCart()\">Add to Cart</button>\n      <button *ngIf=\"button\" (click)=\"onRemoveFromCart()\">\n        Remove From Cart\n      </button>\n    </div>\n  </div>\n</div>\n";
+    __webpack_exports__["default"] = "<h2 class=\"page-header\">Product Details</h2>\n<div>\n  <div>\n    <!--<img class=\"images\" src=\"{{ image }}\" />-->\n    <td\n      style=\"\n        width: 200px;\n        height: 200px;\n        vertical-align: middle;\n        text-align: center;\n      \"\n    >\n      <div class=\"product-grid__img-wrapper\">\n        <img class=\"images\" src=\"{{ image }}\" height=\"auto\" width=\"100px\" />\n      </div>\n    </td>\n    <div>\n      <div>\n        <h4>{{ name }}</h4>\n      </div>\n      <div>\n        {{ price }}\n      </div>\n    </div>\n    <div>\n      <button *ngIf=\"!button\" (click)=\"onAddToCart()\">Add to Cart</button>\n      <button *ngIf=\"button\" (click)=\"onRemoveFromCart()\">\n        Remove From Cart\n      </button>\n    </div>\n  </div>\n</div>\n";
     /***/
   },
 
@@ -1697,7 +1697,9 @@
       }
 
       generateProducts(filter) {
-        this.productService.getProducts(filter).subscribe(products => {
+        // page number value is currently hardcoded to one because I dont want
+        // to deal with it rn... sorry future me
+        this.productService.getProducts(filter, 1).subscribe(products => {
           this.products = products;
           this.products = this.products.products;
           this.products = Object.values(this.products);
@@ -1914,39 +1916,67 @@
       }
 
       ngOnInit() {
-        this.generateProducts(null);
+        this.pagenumber = 1;
+        this.generateProducts(null, this.pagenumber);
       }
 
-      generateProducts(filter) {
-        this.productService.getProducts(filter).subscribe(products => {
+      generateProducts(filter, pagenumber) {
+        this.productService.getProducts(filter, pagenumber).subscribe(products => {
           this.products = products;
           this.products = this.products.products;
           this.products = Object.values(this.products);
         });
       }
 
+      nextPage() {
+        this.pagenumber = this.pagenumber + 1;
+        this.generateProducts(this.filterVal, this.pagenumber);
+      }
+
+      previousPage() {
+        this.pagenumber = this.pagenumber - 1;
+        this.generateProducts(this.filterVal, this.pagenumber);
+      }
+
+      isLast() {
+        // hardcoded
+        if (this.pagenumber == 10) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      isFirst() {
+        if (this.pagenumber == 1 && this.products.length > 20) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
       noFilter() {
-        this.generateProducts(null);
+        this.generateProducts(null, this.pagenumber);
       }
 
       priceAscending() {
         this.filterVal = "priceAsc";
-        this.generateProducts(this.filterVal);
+        this.generateProducts(this.filterVal, this.pagenumber);
       }
 
       priceDescending() {
         this.filterVal = "priceDesc";
-        this.generateProducts(this.filterVal);
+        this.generateProducts(this.filterVal, this.pagenumber);
       }
 
       nameAscending() {
         this.filterVal = "nameAsc";
-        this.generateProducts(this.filterVal);
+        this.generateProducts(this.filterVal, this.pagenumber);
       }
 
       nameDescending() {
         this.filterVal = "nameDesc";
-        this.generateProducts(this.filterVal);
+        this.generateProducts(this.filterVal, this.pagenumber);
       }
 
     };
@@ -3143,10 +3173,11 @@
         this.currentMessage = this.currentCartCount.asObservable();
       }
 
-      getProducts(filter) {
+      getProducts(filter, pagenumber) {
         const getOptions = {
           params: {
-            filter: filter
+            filter: filter,
+            pagenumber: pagenumber
           }
         }; // the http get method returns an observable of http responses
         // we need to unwrap the http response objects that the http
@@ -3399,7 +3430,7 @@
   /***/
   function _(module, exports, __webpack_require__) {
     module.exports = __webpack_require__(
-    /*! C:\Users\chendric\Desktop\BULLDOG_STACK\angular-src\src\main.ts */
+    /*! C:\Users\chendric\Desktop\RESUME PROJECTS\BULLDOG_STACK\angular-src\src\main.ts */
     "./src/main.ts");
     /***/
   }
